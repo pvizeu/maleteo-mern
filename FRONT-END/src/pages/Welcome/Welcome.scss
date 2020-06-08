@@ -1,0 +1,18 @@
+.p-welcome{
+
+  &__container {
+    width: 188.5pt;
+    height: 310pt;
+    border-radius: 8.5pt;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }
+
+  &__img{
+    width: 75.5pt;
+    height: 55pt;
+  }
+}
