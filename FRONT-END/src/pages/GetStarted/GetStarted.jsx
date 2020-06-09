@@ -1,6 +1,7 @@
 import React from 'react';
 import world from "../../shared/img/world@3x.png";
 import './GetStarted.scss'
+import {Link} from "react-router-dom";
 
 export function GetStarted () {
 
@@ -17,7 +18,7 @@ export function GetStarted () {
                 </div>
                 <div className="p-welcome__btn">
                     <a href="/"><button className="b-btn">Empezar Ya</button></a>
-                    <a href="/prices" className="p-get-started__link"><p>Consulta precios</p></a>
+                    <Link to="/prices"><p className="p-get-started__link">Consulta precios</p></Link>
                 </div>
             </div>
         </div>

@@ -1,11 +1,14 @@
 import React from "react";
 import {Nav} from "../../shared/components/Nav/Nav";
 import './Prices.scss'
+import {ArrowBack} from "../../shared/components/ArrowBack/ArrowBack";
+import {Link} from "react-router-dom";
 
 export function Prices() {
 
     return(
         <div className="p-prices">
+            <Link to="/home"><ArrowBack/></Link>
         <div className="p-prices__container">
         <p className="title-primary">Selecciona</p>
             <div>
