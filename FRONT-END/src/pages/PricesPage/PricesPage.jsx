@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 export function PricesPage() {
 
     return(
+        <>
         <div className="p-prices">
             <Link to="/home"><ArrowBack/></Link>
         <div className="p-prices__container">
@@ -32,7 +33,8 @@ export function PricesPage() {
                 <p>Por equipaje</p>
             </div>
         </div>
-            <NavComponent/>
         </div>
+    <NavComponent/>
+    </>
     )
 }
