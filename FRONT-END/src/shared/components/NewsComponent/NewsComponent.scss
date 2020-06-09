@@ -1,0 +1,39 @@
+.c-news{
+
+  margin-left: 25px;
+
+&__overflow{
+  height: 155px;
+  width: 100%;
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+}
+
+  &__item{
+    min-width: 220px;
+    height: 130px;
+    margin-right: 24px;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 7px;
+  }
+
+  &__item:last-child{
+    margin-right: 40px;
+  }
+
+  &__item2{
+    width: 100%;
+    height: 100px;
+  }
+
+  &__img{
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.final{
+  width: 30px;
+  border-left: solid 10px rgba(0 , 0,0,0.0);
+}
