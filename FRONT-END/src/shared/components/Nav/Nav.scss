@@ -1,0 +1,30 @@
+.c-nav{
+  width: 100vw;
+  height: 30pt;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  background-color: white;
+  bottom: 0;
+  position: absolute;
+
+  &__home{
+    width: 16.5pt;
+    height: 16.5pt;
+  }
+
+  &__search{
+    width: 15.5pt;
+    height: 16.5pt;
+  }
+
+  &__chat{
+    width: 14.5pt;
+    height: 15.5pt;
+  }
+
+  &__user{
+    width: 18.5pt;
+    height: 18.5pt;
+  }
+}

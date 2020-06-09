@@ -7,6 +7,7 @@ import './Welcome.scss'
 export function Welcome () {
 
     return(
+        <div className="background-orange">
     <div className="p-welcome">
         <div className="p-welcome__container">
             <img src={string} alt="/" className="p-welcome__img" />
@@ -21,6 +22,7 @@ export function Welcome () {
             </div>
         </div>
     </div>
+        </div>
     )
 
 }
