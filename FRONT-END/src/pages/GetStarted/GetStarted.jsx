@@ -5,6 +5,7 @@ import './GetStarted.scss'
 export function GetStarted () {
 
     return(
+        <div className="background-orange">
         <div className="p-welcome">
             <div className="p-welcome__container">
                 <img src={world} alt="/" className="p-get-started__img" />
@@ -16,9 +17,10 @@ export function GetStarted () {
                 </div>
                 <div className="p-welcome__btn">
                     <a href="/"><button className="b-btn">Empezar Ya</button></a>
-                    <a href="/" className="p-get-started__link"><p>Consulta precios</p></a>
+                    <a href="/prices" className="p-get-started__link"><p>Consulta precios</p></a>
                 </div>
             </div>
+        </div>
         </div>
     )
 

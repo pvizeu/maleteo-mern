@@ -1,0 +1,32 @@
+.c-nav{
+  width: 100vw;
+  height: 30pt;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  background-color: white;
+  bottom: 0;
+  position: absolute;
+  border-top: rgba(193, 193, 193, 0.8) 1px solid;
+  padding-top: 15px;
+
+  &__home{
+    width: 16.5pt;
+    height: 16.5pt;
+  }
+
+  &__search{
+    width: 15.5pt;
+    height: 16.5pt;
+  }
+
+  &__chat{
+    width: 14.5pt;
+    height: 15.5pt;
+  }
+
+  &__user{
+    width: 18.5pt;
+    height: 18.5pt;
+  }
+}
