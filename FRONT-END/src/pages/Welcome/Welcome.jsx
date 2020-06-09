@@ -10,9 +10,15 @@ export function Welcome () {
     <div className="p-welcome">
         <div className="p-welcome__container">
             <img src={string} alt="/" className="p-welcome__img" />
-            <p>Preparate para liberar tu equipaje</p>
-            <p>Encuentra a tu guardián y disfruta a tu manera. Miles de usuarios ya estan aprovechando las ventajas.</p>
-            <a href="/paso2"><button className="b-btn">Continuar</button></a>
+            <div className="p-welcome__text">
+            <p className="title-primary">Preparate para liberarte tu equipaje</p>
+            </div>
+            <div className="p-welcome__text">
+            <p className="text-secondary">Encuentra a tu guardián y disfruta a tu manera. Miles de usuarios ya estan aprovechando las ventajas.</p>
+            </div>
+            <div className="p-welcome__btn">
+            <a href="/getstarted"><button className="b-btn">Continuar</button></a>
+            </div>
         </div>
     </div>
     )
