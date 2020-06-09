@@ -1,18 +1,34 @@
 .p-welcome{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   &__container {
     width: 188.5pt;
     height: 310pt;
     border-radius: 8.5pt;
     background-color: white;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
+    text-align: center;
+    padding: 13pt;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
   }
 
   &__img{
     width: 75.5pt;
     height: 55pt;
+    margin-bottom: 33pt;
+    margin-top: 26.5pt;
+    }
+
+  &__text{
+    width: 158pt;
+    margin-left: 13pt;
+    text-align: start;
+  }
+
+  &__btn{
+    margin-top: 56pt;
   }
 }

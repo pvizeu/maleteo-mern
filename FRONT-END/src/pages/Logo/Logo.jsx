@@ -10,9 +10,9 @@ export function Logo () {
     return(
         <>
         <meta httpEquiv="refresh" content="1;URL=/paso1" />
-            <div className="p-welcome">
-                <img  src={logoMaleteo} alt="logo maleteo" className="p-welcome__img"/>
-                <img src={textoMaleteo} alt="texto maleteo" className="p-welcome__texto"/>
+            <div className="p-logo">
+                <img  src={logoMaleteo} alt="logo maleteo" className="p-logo__img"/>
+                <img src={textoMaleteo} alt="texto maleteo" className="p-logo__texto"/>
             </div>
         </>
     )
