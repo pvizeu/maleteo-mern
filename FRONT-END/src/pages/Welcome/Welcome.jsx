@@ -2,6 +2,7 @@ import React from 'react';
 import string from '../../shared/img/cadena@2x.png'
 import '../../styles/blocks/_background.blocks.scss'
 import './Welcome.scss'
+import {Link} from "react-router-dom";
 
 
 export function Welcome () {
@@ -18,7 +19,7 @@ export function Welcome () {
             <p className="text-secondary">Encuentra a tu guardián y disfruta a tu manera. Miles de usuarios ya estan aprovechando las ventajas.</p>
             </div>
             <div className="p-welcome__btn">
-            <a href="/getstarted"><button className="b-btn">Continuar</button></a>
+            <Link to="/getstarted"><button className="b-btn">Continuar</button></Link>
             </div>
         </div>
     </div>
