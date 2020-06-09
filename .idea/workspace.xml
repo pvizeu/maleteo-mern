@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b7c3c67-1982-4041-a14d-cc876662ae57" name="Default Changelist" comment="" />
+    <list default="true" id="5b7c3c67-1982-4041-a14d-cc876662ae57" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +71,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jikan-api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/FRONT-END/src/shared/img" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -84,6 +86,7 @@
       <recent name="$PROJECT_DIR$/FRONT-END/src" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/FRONT-END/src/shared/img" />
       <recent name="$PROJECT_DIR$/FRONT-END/public" />
     </key>
   </component>
@@ -162,10 +165,10 @@
     </state>
     <state x="266" y="31" width="964" height="737" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1591604384358" />
     <state x="266" y="31" key="SettingsEditor/1920.312.1366.768/0.0.1366.768@0.0.1366.768" timestamp="1591663753670" />
-    <state x="277" y="118" width="802" height="539" key="Vcs.Push.Dialog.v2" timestamp="1591663869488">
+    <state x="277" y="118" width="802" height="539" key="Vcs.Push.Dialog.v2" timestamp="1591664726586">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="277" y="118" width="802" height="539" key="Vcs.Push.Dialog.v2/1920.312.1366.768/0.0.1366.768@0.0.1366.768" timestamp="1591663869488" />
+    <state x="277" y="118" width="802" height="539" key="Vcs.Push.Dialog.v2/1920.312.1366.768/0.0.1366.768@0.0.1366.768" timestamp="1591664726586" />
     <state x="505" y="301" width="345" height="173" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591663771262">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
