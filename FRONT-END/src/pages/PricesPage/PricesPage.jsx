@@ -1,6 +1,6 @@
 import React from "react";
-import {NavComponent} from "../../shared/components/Nav-Component/Nav-Component";
-import './Prices-Page.scss'
+import {NavComponent} from "../../shared/components/NavComponent/NavComponent";
+import './PricesPage.scss'
 import {ArrowBack} from "../../shared/components/ArrowBack/ArrowBack";
 import {Link} from "react-router-dom";
 

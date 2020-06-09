@@ -1,7 +1,7 @@
 import React from 'react';
 import string from '../../shared/img/cadena@2x.png'
 import '../../styles/blocks/_background.blocks.scss'
-import './Welcome-Page.scss'
+import './WelcomePage.scss'
 import {Link} from "react-router-dom";
 
 export function WelcomePage () {

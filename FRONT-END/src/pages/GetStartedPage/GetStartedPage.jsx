@@ -1,6 +1,6 @@
 import React from 'react';
 import world from "../../shared/img/world@3x.png";
-import './GetStarted-Page.scss'
+import './GetStartedPage.scss'
 import {Link} from "react-router-dom";
 
 export function GetStartedPage () {

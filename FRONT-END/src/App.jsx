@@ -1,11 +1,16 @@
 import React from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { LogoPage } from './pages/Logo-Page/Logo-Page';
-import { WelcomePage } from './pages/Welcome-Page/Welcome-Page';
-import { GetStartedPage } from './pages/GetStarted-Page/GetStarted-Page';
-import {PricesPage} from "./pages/Prices-Page/Prices-Page";
-import {HomePage} from "./pages/Home-Page/Home-Page";
+import { LogoPage } from './pages/LogoPage/LogoPage';
+import { WelcomePage } from './pages/WelcomePage/WelcomePage';
+import { GetStartedPage } from './pages/GetStartedPage/GetStartedPage';
+import {PricesPage} from "./pages/PricesPage/PricesPage";
+import {HomePage} from "./pages/HomePage/HomePage";
+import {SearchPage} from "./pages/SearchPage/SearchPage";
+import {LocationPage} from "./pages/LocationPage/LocationPage";
+import {ReserveDetailsPage} from "./pages/ReserveDetailsPage/ReserveDetailsPage";
+import {ReserveCompletePage} from "./pages/ReserveCompletePage/ReserveCompletePage";
+import {GuardianConfirmationPage} from "./pages/GuardianConfirmationPage/GuardianConfirmationPage";
 
 function App() {
   return (
@@ -20,6 +25,21 @@ function App() {
         </Route>
         <Route path="/welcome">
           <WelcomePage/>
+        </Route>
+        <Route path="/search">
+          <SearchPage/>
+        </Route>
+        <Route path="/details">
+          <ReserveDetailsPage/>
+        </Route>
+        <Route path="/complete">
+          <ReserveCompletePage/>
+        </Route>
+        <Route path="/confirmation">
+          <GuardianConfirmationPage/>
+        </Route>
+        <Route path="/location/:id">
+          <LocationPage/>
         </Route>
         <Route path="/prices">
           <PricesPage/>

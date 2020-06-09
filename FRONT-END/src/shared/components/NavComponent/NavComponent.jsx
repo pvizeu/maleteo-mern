@@ -1,5 +1,5 @@
 import React from "react";
-import './Nav-Component.scss'
+import './NavComponent.scss'
 import home from '../../img/inicio@3x.png';
 import search from '../../img/buscar@3x.png';
 import chat from '../../img/mensaje@3x.png';

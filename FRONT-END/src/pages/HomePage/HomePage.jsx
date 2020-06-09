@@ -1,7 +1,7 @@
 import React from "react";
 import {NewsComponent} from "../../shared/components/NewsComponent/NewsComponent";
 import {ExperienceComponent} from "../../shared/components/ExprienceComponent/ExperienceComponent";
-import {NavComponent} from "../../shared/components/Nav-Component/Nav-Component";
+import {NavComponent} from "../../shared/components/NavComponent/NavComponent";
 
 export function HomePage() {
 

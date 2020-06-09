@@ -1,7 +1,7 @@
 import React from 'react';
 import logoMaleteo from '../../shared/img/maleta@3x.png'
 import textoMaleteo from '../../shared/img/maleteo@3x.png'
-import './Logo-Page.scss'
+import './LogoPage.scss'
 
 
 export function LogoPage () {
