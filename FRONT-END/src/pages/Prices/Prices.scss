@@ -1,0 +1,39 @@
+.p-prices{
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding-left: 16%;
+  }
+
+  &__select{
+    width: 80%;
+    height: 29pt;
+    margin-bottom: 15pt;
+  }
+
+  &__item{
+    width: 70%;
+    background: rgb(255,130,0);
+    color: white;
+    border-radius: 2pt;
+    text-align: center;
+    margin-bottom: 20pt;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+  }
+
+  &__adicional{
+    width: 70%;
+    background: rgb(1,181,230);
+    color: white;
+    border-radius: 2pt;
+    text-align: center;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+  }
+
+  &__price{
+    font-size: 25pt;
+  }
+}
