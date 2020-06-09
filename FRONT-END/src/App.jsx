@@ -16,7 +16,7 @@ function App() {
         <Route path="/welcome">
           <Welcome/>
         </Route>
-      <Route path="/">
+        <Route path="/">
           <Logo/>
         </Route>
       </Switch>
