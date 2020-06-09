@@ -6,8 +6,9 @@
   align-items: center;
 
   &__container {
-    width: 188.5pt;
-    height: 310pt;
+    width: 70%;
+    height: 65%;
+    margin-top: -15%;
     border-radius: 8.5pt;
     background-color: white;
     text-align: center;
@@ -16,8 +17,8 @@
   }
 
   &__img{
-    width: 75.5pt;
-    height: 55pt;
+    width: 45%;
+    height: auto;
     margin-bottom: 33pt;
     margin-top: 26.5pt;
     }
