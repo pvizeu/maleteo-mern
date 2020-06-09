@@ -5,12 +5,16 @@ import { LogoPage } from './pages/Logo-Page/Logo-Page';
 import { WelcomePage } from './pages/Welcome-Page/Welcome-Page';
 import { GetStartedPage } from './pages/GetStarted-Page/GetStarted-Page';
 import {PricesPage} from "./pages/Prices-Page/Prices-Page";
+import {HomePage} from "./pages/Home-Page/Home-Page";
 
 function App() {
   return (
     <Router>
 
       <Switch>
+        <Route path="/home">
+          <HomePage/>
+        </Route>
         <Route path="/getstarted">
           <GetStartedPage/>
         </Route>
