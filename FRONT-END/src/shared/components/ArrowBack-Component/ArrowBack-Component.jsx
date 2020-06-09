@@ -1,9 +1,9 @@
 import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleLeft} from "@fortawesome/free-solid-svg-icons/faAngleLeft";
-import './ArrowBack.scss'
+import './ArrowBack-Component.scss'
 
-export  function ArrowBack() {
+export  function ArrowBackComponent() {
     return(
         <div className="arrow-icon">
             <FontAwesomeIcon icon={faAngleLeft}/>
