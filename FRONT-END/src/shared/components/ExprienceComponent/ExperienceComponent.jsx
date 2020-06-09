@@ -1,26 +1,26 @@
 import React from "react";
 import './ExperienceComponent.scss'
 
-export function ExperienceComponent() {
+export function ExperienceComponent(props) {
+
+    const exp = props.exp;
 
     return (
         <div className="c-experience">
-            <h3>Experiencias</h3>
+            <h4 className="title-primary">Experiencias</h4>
             <div className="c-experience__container">
-
-                <div className="c-experience__item">
+                {
+                    exp.map( (exp, key) =>
+                  <div key={key} className="c-experience__item">
+                <div className="c-experience__container-img">
+                    <img src={exp.img} alt="/" className="c-experience__img" />
                 </div>
-                <h4>Un pedazito de italia</h4>
-                <p>Lorem ipsum</p>
-
-            </div>
-            <div className="c-experience__container">
-
-                <div className="c-experience__item">
+                <p className="title-secondary">{exp.title}</p>
+                <p className="text-secondary">{exp.descripcion}</p>
                 </div>
-                <h4>Un pedazito de italia</h4>
-                <p>Lorem ipsum</p>
+                 )}
             </div>
+
         </div>
     )
 }
