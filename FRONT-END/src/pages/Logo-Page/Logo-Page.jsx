@@ -1,10 +1,10 @@
 import React from 'react';
 import logoMaleteo from '../../shared/img/maleta@3x.png'
 import textoMaleteo from '../../shared/img/maleteo@3x.png'
-import './Logo.scss'
+import './Logo-Page.scss'
 
 
-export function Logo () {
+export function LogoPage () {
 
     return(
         <>

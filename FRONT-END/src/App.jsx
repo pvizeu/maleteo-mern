@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Logo } from './pages/Logo/Logo';
-import { Welcome } from './pages/Welcome/Welcome';
-import { GetStarted } from './pages/GetStarted/GetStarted';
-import {Prices} from "./pages/Prices/Prices";
+import { LogoPage } from './pages/Logo-Page/Logo-Page';
+import { WelcomePage } from './pages/Welcome-Page/Welcome-Page';
+import { GetStartedPage } from './pages/GetStarted-Page/GetStarted-Page';
+import {PricesPage} from "./pages/Prices-Page/Prices-Page";
 
 function App() {
   return (
@@ -12,16 +12,16 @@ function App() {
 
       <Switch>
         <Route path="/getstarted">
-          <GetStarted/>
+          <GetStartedPage/>
         </Route>
         <Route path="/welcome">
-          <Welcome/>
+          <WelcomePage/>
         </Route>
         <Route path="/prices">
-          <Prices/>
+          <PricesPage/>
         </Route>
         <Route path="/">
-          <Logo/>
+          <LogoPage/>
         </Route>
       </Switch>
     </Router>
