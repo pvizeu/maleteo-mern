@@ -1,8 +1,8 @@
 import React from "react";
-import {Nav} from "../../shared/components/Nav/Nav";
-import './Prices.scss'
+import {NavComponent} from "../../shared/components/Nav-Component/Nav-Component";
+import './Prices-Page.scss'
 
-export function Prices() {
+export function PricesPage() {
 
     return(
         <div className="p-prices">
@@ -29,7 +29,7 @@ export function Prices() {
                 <p>Por equipaje</p>
             </div>
         </div>
-            <Nav/>
+            <NavComponent/>
         </div>
     )
 }

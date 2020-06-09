@@ -1,8 +1,8 @@
 import React from 'react';
 import world from "../../shared/img/world@3x.png";
-import './GetStarted.scss'
+import './GetStarted-Page.scss'
 
-export function GetStarted () {
+export function GetStartedPage () {
 
     return(
         <div className="background-orange">

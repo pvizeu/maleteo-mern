@@ -1,10 +1,10 @@
 import React from 'react';
 import string from '../../shared/img/cadena@2x.png'
 import '../../styles/blocks/_background.blocks.scss'
-import './Welcome.scss'
+import './Welcome-Page.scss'
 
 
-export function Welcome () {
+export function WelcomePage () {
 
     return(
         <div className="background-orange">
