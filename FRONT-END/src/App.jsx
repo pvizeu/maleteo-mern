@@ -10,10 +10,10 @@ function App() {
     <Router>
 
       <Switch>
-        <Route path="/paso2">
+        <Route path="/getstarted">
           <GetStarted/>
         </Route>
-        <Route path="/paso1">
+        <Route path="/welcome">
           <Welcome/>
         </Route>
       <Route path="/">

@@ -17,7 +17,7 @@ export function Welcome () {
             <p className="text-secondary">Encuentra a tu guardián y disfruta a tu manera. Miles de usuarios ya estan aprovechando las ventajas.</p>
             </div>
             <div className="p-welcome__btn">
-            <a href="/paso2"><button className="b-btn">Continuar</button></a>
+            <a href="/getstarted"><button className="b-btn">Continuar</button></a>
             </div>
         </div>
     </div>
