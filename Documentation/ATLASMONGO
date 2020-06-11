@@ -1,1 +1,19 @@
-**CONEXION BASE 
+**CONEXION BASE ALTASMONGO
+usuario de ATLASMONGO
+    user: feb20maleteo@gmail.com
+    pwd:madrid20
+    
+proyecto:maleteo
+basedatos:maleteo
+tablas: {la de la documentacion}
+usuarios de base datos: (el password:madrid20)(todos tienen derechos de administrador)
+    feb20bootcamp
+    luisrolo
+    andresmadalena
+    alejandroprieto
+    pedrovizeu
+
+acceso desde shell con mongo instalado <dbname>=maleteo y <username> es de cada uno en la bd. va en el environement
+mongo "mongodb+srv://cluster0-vtubk.mongodb.net/<dbname>" --username <username> 
+acceso desde la aplicacion el <username> y<password de de la base datos no de usuario AtlasmON
+mongodb+srv://<username>:<password>@cluster0-vtubk.mongodb.net/<dbname>?retryWrites=true&w=majority
