@@ -12,6 +12,8 @@ import {ReserveDetailsPage} from "./pages/ReserveDetailsPage/ReserveDetailsPage"
 import {ReserveCompletePage} from "./pages/ReserveCompletePage/ReserveCompletePage";
 import {GuardianConfirmationPage} from "./pages/GuardianConfirmationPage/GuardianConfirmationPage";
 import { CalendarPage } from './pages/CalendarPage/CalendarPage';
+import {LoginPage} from "./pages/LoginPage/LoginPage";
+import {RegisterPage} from "./pages/RegisterPage/RegisterPage";
 
 function App() {
   return (
@@ -32,6 +34,12 @@ function App() {
         </Route>
         <Route path="/search">
           <SearchPage/>
+        </Route>
+        <Route path="/login">
+          <LoginPage/>
+        </Route>
+        <Route path="/register">
+          <RegisterPage/>
         </Route>
         <Route path="/details">
           <ReserveDetailsPage/>

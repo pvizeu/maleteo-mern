@@ -7,9 +7,9 @@ export function CalendarPage() {
 
     return(
         <div>
-        <ArrowBackComponent/>
+        <ArrowBackComponent url={"/home"}/>
         <CalendarComponent/>
         <NavComponent/>
         </div>
-    )
+    );
 }

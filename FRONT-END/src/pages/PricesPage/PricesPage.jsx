@@ -9,7 +9,7 @@ export function PricesPage() {
     return(
         <>
         <div className="p-prices">
-            <Link to="/home"><ArrowBackComponent/></Link>
+            <ArrowBackComponent url={"/home"}/>
             <div className="p-prices__container">
             <p className="b-title">Selecciona</p>
                 <div>
