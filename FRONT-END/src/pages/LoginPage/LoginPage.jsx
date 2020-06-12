@@ -1,11 +1,14 @@
 import React from 'react';
 import './LoginPage.scss';
+import {ArrowBackComponent} from "../../shared/components/ArrowBackComponent/ArrowBackComponent";
+import {SwitchComponent} from "../../shared/components/SwitchComponent/SwitchComponent";
 
 export function LoginPage() {
 
   return (
     <div>
-      <p>Estamos dentro de Login page</p>
+      <ArrowBackComponent />
+      <SwitchComponent className="switch"/>
     </div>
   );
 }
