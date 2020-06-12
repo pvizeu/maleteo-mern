@@ -11,12 +11,16 @@ import {LocationPage} from "./pages/LocationPage/LocationPage";
 import {ReserveDetailsPage} from "./pages/ReserveDetailsPage/ReserveDetailsPage";
 import {ReserveCompletePage} from "./pages/ReserveCompletePage/ReserveCompletePage";
 import {GuardianConfirmationPage} from "./pages/GuardianConfirmationPage/GuardianConfirmationPage";
+import { CalendarPage } from './pages/CalendarPage/CalendarPage';
 
 function App() {
   return (
     <Router>
 
       <Switch>
+      <Route path="/calendar">
+          <CalendarPage/>
+        </Route>
         <Route path="/home">
           <HomePage/>
         </Route>
