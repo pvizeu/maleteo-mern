@@ -1,22 +1,21 @@
 .p-prices{
 
   &__container {
+    padding-left: 8%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    padding-left: 16%;
     margin-bottom:5.7vh;
   }
 
-  &__select{
-    width: 80%;
-    height: 29pt;
-    margin-bottom: 15pt;
+  &__select:focus, &__select:hover{
+    outline: none;
+    border: 1px solid #F78712;
   }
 
   &__item{
-    width: 70%;
+    width: 80%;
     background: rgb(255,130,0);
     color: white;
     border-radius: 2pt;
@@ -26,7 +25,7 @@
   }
 
   &__adicional{
-    width: 70%;
+    width: 80%;
     background: rgb(1,181,230);
     color: white;
     border-radius: 2pt;

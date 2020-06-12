@@ -6,9 +6,9 @@ import fenix from '../../shared/img/fenix@3x.png';
 export function ReserveCompletePage() {
 
   return (
-    <div className="justify-content-center p-3 complete">
+    <div className=" p-4 complete">
       <CloseComponent/>
-      <p className="complete__title">Reserva Completada</p>
+      <p className="b-title">Reserva Completada</p>
       <img src={fenix} alt="fenix" className="complete__fenix"/>
       <p>codigo de reserva: <strong>QWERTY</strong></p>
       <h3>BE FREE!</h3>

@@ -2,6 +2,7 @@ import React from "react";
 import {NewsComponent} from "../../shared/components/NewsComponent/NewsComponent";
 import {ExperienceComponent} from "../../shared/components/ExprienceComponent/ExperienceComponent";
 import {NavComponent} from "../../shared/components/NavComponent/NavComponent";
+import "./HomePage.scss";
 
 export function HomePage() {
 
@@ -16,10 +17,10 @@ export function HomePage() {
     }]
 
     return(
-        <div>
-        <h1>Home</h1>
+        <div className="home">
             <NewsComponent/>
             <ExperienceComponent exp={exp}/>
+            <button className="b-btn home__button">Mostrar más</button>
             <NavComponent/>
         </div>
     )

@@ -1,0 +1,42 @@
+.details{
+
+  &__title{
+    margin-left: 30px;
+  }
+  &__first{
+    display: flex;
+    align-items: center;
+    //justify-content: space-around;
+    flex-direction: column;
+  }
+  &__information>th, &__information>td{
+     //margin: 20px;
+     text-align: center;
+     padding: 5px 20px;
+  }
+  &__hr{
+    color: rgba(0, 0, 0, 0.2);
+  }
+  &__description{
+    display: flex;
+    justify-content: space-between;
+    padding: 26px ;
+  }
+  &__text{
+    display: block;
+    margin: 16px 0;
+  }
+  &__prices{
+    display: flex;
+    //vertical-align: middle;
+    flex-direction: column;
+  }
+  &__button{
+    font-weight: bold;
+    padding: 5pt 53pt 7pt;
+    text-decoration: none;
+    font-size: 11pt;
+    margin: 10pt 60pt;
+    cursor: pointer;
+  }
+}

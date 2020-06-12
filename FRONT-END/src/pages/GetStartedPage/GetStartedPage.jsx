@@ -11,10 +11,10 @@ export function GetStartedPage () {
             <div className="p-welcome__container">
                 <img src={world} alt="/" className="p-get-started__img" />
                 <div className="p-welcome__text">
-                    <p className="title-primary">El mismo precio en cualquier parte</p>
+                    <p className="b-title">El mismo precio en cualquier parte</p>
                 </div>
                 <div className="p-welcome__text">
-                    <p className="text-secondary">Dispondrás de un precio fijo estés donde estés, sin importar el tamaño o el pesp.</p>
+                    <p>Dispondrás de un precio fijo estés donde estés, sin importar el tamaño o el peso.</p>
                 </div>
                 <div className="p-welcome__btn">
                     <a href="/"><button className="b-btn">Empezar Ya</button></a>

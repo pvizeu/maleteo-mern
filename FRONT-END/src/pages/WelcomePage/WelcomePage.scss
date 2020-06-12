@@ -6,8 +6,8 @@
   align-items: center;
 
   &__container {
-    width: 70%;
-    height: 65%;
+    width: 80%;
+    height: 75%;
     margin-top: -15%;
     border-radius: 8.5pt;
     background-color: white;
@@ -24,12 +24,12 @@
     }
 
   &__text{
-    width: 158pt;
-    margin-left: 13pt;
+    width: 180pt;
+    margin: 13pt;
     text-align: start;
   }
 
   &__btn{
-    margin-top: 56pt;
+    margin-top: 76pt;
   }
 }

@@ -12,10 +12,10 @@ export function WelcomePage () {
         <div className="p-welcome__container">
             <img src={string} alt="/" className="p-welcome__img" />
             <div className="p-welcome__text">
-            <p className="title-primary">Preparate para liberarte tu equipaje</p>
+            <p className="b-title">Preparate para liberarte tu equipaje</p>
             </div>
             <div className="p-welcome__text">
-            <p className="text-secondary">Encuentra a tu guardián y disfruta a tu manera. Miles de usuarios ya estan aprovechando las ventajas.</p>
+            <p>Encuentra a tu guardián y disfruta a tu manera. Miles de usuarios ya estan aprovechando las ventajas.</p>
             </div>
             <div className="p-welcome__btn">
             <Link to="/getstarted"><button className="b-btn">Continuar</button></Link>
