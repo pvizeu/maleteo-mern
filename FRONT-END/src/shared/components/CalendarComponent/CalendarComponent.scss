@@ -1,0 +1,94 @@
+.week{
+  padding: 0 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.p-component{
+  font-size: 14px;  
+}
+.p-datepicker table td > span.p-highlight{
+    background-color: orange;
+  }
+
+.p-disabled, body .p-component:disabled {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.p-datepicker table {
+  font-size: 14px;
+  text-align: center;
+
+}
+
+.p-datepicker table td > span {
+    display: block;
+    text-align: center;
+    color: #333333;
+    cursor: pointer;
+    padding: 0.5em;
+    border-radius: 50%;
+}
+.p-datepicker {
+  padding: 0.857em;
+  min-width: 20em;
+  background-color: #ffffff;
+  color: #333333;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+}
+.p-datepicker table td {
+  padding: 0.5em;
+}
+.p-datepicker .p-datepicker-header {
+  padding: 0.429em 0.857em 0.429em 0.857em;
+  background-color: #ffffff;
+  color: #333333;
+  display: grid;
+  grid-template-areas: "left title right";
+  justify-content: space-around;
+  align-items: center;
+}
+
+.p-datepicker .p-datepicker-header .p-datepicker-prev,.p-datepicker .p-datepicker-header .p-datepicker-next {
+  cursor: pointer;
+  font-size: 8px;
+  top: 0;
+  -webkit-transition: color 0.2s, box-shadow 0.2s;
+  -webkit-transition: color 0.2s, -webkit-box-shadow 0.2s;
+  transition: color 0.2s, -webkit-box-shadow 0.2s;
+  transition: color 0.2s, box-shadow 0.2s;
+  transition: color 0.2s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
+}
+.p-datepicker-next{
+  grid-area: right;
+}
+.p-datepicker-prev{
+  grid-area: left;
+}
+.p-datepicker .p-datepicker-header .p-datepicker-title {
+  text-align: center;
+  grid-area: title;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.calendar-container{
+  overflow-x: scroll;
+  height: 70vh;
+  padding: 0;
+}
+
+.btn-container{
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  margin-top: -4%;
+}
