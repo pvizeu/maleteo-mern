@@ -1,0 +1,14 @@
+.forward-icon{
+  font-size: 40px;
+  text-decoration: none;
+  position: absolute;
+  bottom: 80px;
+  right: 30px;
+
+  &__link{
+    color: #F78712;
+  }
+  &__link:hover{
+    color: black;
+  }
+}

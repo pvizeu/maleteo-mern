@@ -1,0 +1,22 @@
+.time{
+  padding: 50px 40px;
+  display: flex;
+  justify-content: space-around;
+  &__element{
+    display: block;
+    margin: 8px 80px 0 0;
+  }
+  &__num{
+    padding: 35px;
+  }
+  &__border-orange{
+    border-left: 5px solid #F78712;
+  }
+  &__border-blue{
+    border-left: 5px solid #008FBF;
+  }
+  &__select{
+    width: 45%;
+    margin-top: 8px;
+  }
+}

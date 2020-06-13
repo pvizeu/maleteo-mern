@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Calendar } from 'primereact/calendar'
 import 'primeicons/primeicons.css';
 import './CalendarComponent.scss'
+import {Link} from "react-router-dom";
 //import 'primereact/resources/themes/nova-light/theme.css';
 
 
@@ -39,7 +40,9 @@ export function CalendarComponent() {
         <Calendar locale={es} minDate={today} value={date1} onChange={(e) => setDate1(e.value)} inline={true} showWeek={false} />
         <Calendar required={true} locale={es} minDate={date1} value={date2} onChange={(e) => setDate2(e.value)} inline={true} showWeek={false} />
             </div>
-        { date2 >= date1 ? <div className="btn-container"> <button className="b-btn">Continuar</button> </div> : null }
+        { date2 >= date1 ? <div className="btn-container"><Link to={"/time"}>
+          <button className="b-btn">Continuar</button>
+        </Link> </div> : null }
 
         </div>
     )

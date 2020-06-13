@@ -14,6 +14,7 @@ import {GuardianConfirmationPage} from "./pages/GuardianConfirmationPage/Guardia
 import { CalendarPage } from './pages/CalendarPage/CalendarPage';
 import {LoginPage} from "./pages/LoginPage/LoginPage";
 import {RegisterPage} from "./pages/RegisterPage/RegisterPage";
+import {TimePage} from "./pages/TimePage/TimePage";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
         </Route>
         <Route path="/search">
           <SearchPage/>
+        </Route>
+        <Route path="/time">
+          <TimePage />
         </Route>
         <Route path="/login">
           <LoginPage/>
