@@ -1,10 +1,11 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {environment} from "../../environments/environment";
 import axios from 'axios';
 import {NewsComponent} from "../../shared/components/NewsComponent/NewsComponent";
 import {ExperienceComponent} from "../../shared/components/ExprienceComponent/ExperienceComponent";
 import {NavComponent} from "../../shared/components/NavComponent/NavComponent";
 import "./HomePage.scss";
+import { InputComponent } from '../../shared/components/InputComponent/InputComponent'
 
 export function HomePage() {
     const [experiences, setExperiences] = useState([]);
@@ -35,6 +36,7 @@ export function HomePage() {
     return(
         <div className="home">
             <NewsComponent blogs={blogs}/>
+            <InputComponent />
             <ExperienceComponent exp={experiences}/>
             <button className="b-btn home__button">Mostrar más</button>
             <NavComponent/>

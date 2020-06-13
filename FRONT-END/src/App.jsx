@@ -33,7 +33,7 @@ function App() {
         <Route path="/welcome">
           <WelcomePage/>
         </Route>
-        <Route path="/search">
+        <Route path="/search/:x/:y">
           <SearchPage/>
         </Route>
         <Route path="/time">
