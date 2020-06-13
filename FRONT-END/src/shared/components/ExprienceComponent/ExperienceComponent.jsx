@@ -13,10 +13,10 @@ export function ExperienceComponent(props) {
                     exp.map( (exp, key) =>
                   <div key={key} className="c-experience__item">
                 <div className="c-experience__container-img">
-                    <img src={exp.img} alt="/" className="c-experience__img" />
+                    <img src={exp.photo} alt="/" className="c-experience__img" />
                 </div>
                 <p className="title-secondary">{exp.title}</p>
-                <p className="text-secondary">{exp.descripcion}</p>
+                <p className="text-secondary">{exp.text}</p>
                 </div>
                  )}
             </div>
