@@ -16,7 +16,7 @@ export function RegisterComponent () {
             edad--;
         }
         if(edad >= 18){
-            console.log("se mandan los datos");            
+            console.log("se mandan los datos");
         }else{
             alert ("menor")
         }

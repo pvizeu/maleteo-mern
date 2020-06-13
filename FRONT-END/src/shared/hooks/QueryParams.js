@@ -19,9 +19,9 @@ import {
 export default function QueryParamsExample() {
   return (
     <Router>
-    <QueryParamsDemo />
+      <QueryParamsDemo />
     </Router>
-);
+  );
 }
 
 // A custom hook that builds on useLocation to parse
@@ -32,43 +32,32 @@ function useQuery() {
 
 function QueryParamsDemo() {
   let query = useQuery();
+  const latlng = { lat: 40 , lng: -3};
 
   return (
     <div>
-    <div>
-    <h2>Accounts</h2>
-    <ul>
-    <li>
-    <Link to="/account?name=netflix">Netflix</Link>
-    </li>
-    <li>
-    <Link to="/account?name=zillow-group">Zillow Group</Link>
-  </li>
-  <li>
-  <Link to="/account?name=yahoo">Yahoo</Link>
-    </li>
-    <li>
-    <Link to="/account?name=modus-create">Modus Create</Link>
-  </li>
-  </ul>
 
-  <Child name={query.get("name")} />
-  </div>
-  </div>
-);
+      <Link to={`/?x=${latlng.lat}&y=${latlng.lng}`}>LatLng</Link>
+
+
+      <Child x={query.get("x")} y={query.get("y")}/>
+
+    </div>
+  );
 }
 
-function Child({ name }) {
+function Child({ x, y }) {
   return (
     <div>
-    {name ? (
+      {x ? (
         <h3>
-        The <code>name</code> in the query string is &quot;{name}
-        &quot;
-    </h3>
-) : (
-  <h3>There is no name in the query string</h3>
-)}
-</div>
-);
+          The <code>x</code> in the query string is &quot;{x}
+          &quot; & &quot;{y}
+          &quot;
+        </h3>
+      ) : (
+        <h3>There is no name in the query string</h3>
+      )}
+    </div>
+  );
 }
