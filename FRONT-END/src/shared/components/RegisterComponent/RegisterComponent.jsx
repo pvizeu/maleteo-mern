@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import {environment} from "../../../environments/environment";
 import { useForm } from "react-hook-form";
 import './RegisterComponent.scss'
 
@@ -17,6 +19,8 @@ export function RegisterComponent () {
         }
         if(edad >= 18){
             console.log("se mandan los datos");
+            console.log(data)
+            axios.post(environment.url+'new',data).then(res=>console.log('respuestaa',data));
         }else{
             alert ("menor")
         }
@@ -42,7 +46,7 @@ export function RegisterComponent () {
                 <label className="c-login__label" htmlFor="LastName">
                     <span className="b-text-label">Apellido</span>
 
-                    <input className="c-login__input" name="LastName" id="lastName"
+                    <input className="c-login__input" name="surname" id="lastName"
                            ref={register({ required: true})}/>
                     {errors.email && <span>Este campo es requerido</span>}
                 </label >
