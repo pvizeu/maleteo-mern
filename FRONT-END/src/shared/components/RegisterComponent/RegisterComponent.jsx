@@ -20,7 +20,7 @@ export function RegisterComponent () {
         if(edad >= 18){
             console.log("se mandan los datos");
             console.log(data)
-            axios.post(environment.url+'new',data).then(res=>console.log('respuestaa',data));
+             axios.post(environment.url+'new',data).then(res=>console.log('respuestaa',data));
         }else{
             alert ("menor")
         }
