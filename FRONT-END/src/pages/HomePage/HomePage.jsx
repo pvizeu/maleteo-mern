@@ -24,11 +24,12 @@ export function HomePage() {
 
     return(
         <div className="home">
-            <NewsComponent blogs={blogs}/>
-            <InputComponent />
-            <ExperienceComponent exp={experiences}/>
-            <button className="b-btn home__button">Mostrar más</button>
-            <NavComponent/>
+          <p className="b-title">Encuentra tu guardian</p>
+          <InputComponent />
+          <NewsComponent blogs={blogs}/>
+          <ExperienceComponent exp={experiences}/>
+          <button className="b-btn home__button">Mostrar más</button>
+          <NavComponent/>
         </div>
     )
 }
