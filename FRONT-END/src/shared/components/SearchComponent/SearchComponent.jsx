@@ -16,7 +16,7 @@ import {
   ComboboxOption,
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 // Fetcher es una funcion que recibe la clave y devuelve una promesa con los datos a cargar en Json
 const fetcher = (...arg) => fetch(...arg).then(response => response.json());
@@ -26,21 +26,26 @@ const Marker = ({children}) => children;
 
 export function SearchComponent() {
 
-   //parametros de la url  
-   let lat = useParams().x;
-   let lng = useParams().y;
- 
+  // Funcion necesaria para hacer uso de queryParams
+  function useQuery() {
+    return new URLSearchParams(useLocation().search);
+  }
+
+   let query = useQuery();
+   //parametros de la url recogidos con query buscando la clave
+   let lat = query.get("lat");
+   let lng = query.get("lng");
+
    //convirtiendolos en float
    lat = parseFloat(lat)
    lng = parseFloat(lng)
- 
-   const center = {
-    lat: lat,
-    lng: lng,
-  };  
 
+   const center = {
+    lat: (lat ? lat : 40.4),
+    lng: (lng ? lng : -3.7)
+  };
   const resolution = 12;
- 
+
    //haciendolos el centro del mapa
 
   const panTo = React.useCallback(({ lat, lng }) => {

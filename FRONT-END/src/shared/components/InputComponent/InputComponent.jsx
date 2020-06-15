@@ -66,7 +66,7 @@ export function InputComponent() {
         )}
       </PlacesAutocomplete>
       {/* Redirecciona al mapa con la direccion seleccionada */}
-      <Link to={`/search/${coordinates.lat}/${coordinates.lng}`} >
+      <Link to={`/search/?lat=${coordinates.lat}&lng=${coordinates.lng}`} >
       <button>
      Continuar
       </button>
