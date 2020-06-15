@@ -1,4 +1,5 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
+import axios from 'axios';
 import './SearchComponent.scss';
 import GoogleMapReact from 'google-map-react';
 import credentials from "./credentials/credentials.js";
@@ -17,6 +18,8 @@ import {
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
 import { useLocation } from "react-router-dom";
+import {environment} from "../../../environments/environment";
+
 
 // Fetcher es una funcion que recibe la clave y devuelve una promesa con los datos a cargar en Json
 const fetcher = (...arg) => fetch(...arg).then(response => response.json());
@@ -25,6 +28,7 @@ const fetcher = (...arg) => fetch(...arg).then(response => response.json());
 const Marker = ({children}) => children;
 
 export function SearchComponent() {
+
 
   // Funcion necesaria para hacer uso de queryParams
   function useQuery() {
@@ -61,17 +65,27 @@ export function SearchComponent() {
   // Se tiene que utilizar useRef porque este valor no puede cambiar al renderizar el componente, esta es la llamada a google Maps sin utilizar la libreria para agregar funcionalidad a los grupos
   const mapRef = useRef();
 
+
   // 2) load and format data
+  const [puntos,setPuntos] = useState([]);
+
+  useEffect(()=>{
+    axios.get(environment.url+'spaces').then(res=>{
+      console.log(res.data.data);
+      setPuntos(res.data.data);
+    })
+  },[])
+
   const url =
     "https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2019-10";
   // Se utiliza el hook Swr para cambiar el formato de los datos
   // data y error son las claves con que vamos a trabajar dentro de los objetos que devuelve el fetcher
   const {data, error} = useSwr(url, fetcher);
   const crimes = data && !error ? data : [];
-
+  //console.log(crimes);
   // se hace un map para que devuelva un objeto que luego recibe el superCluster 
   // points = marcas
-  const points = crimes.map(crime => ({
+  const points = puntos.map(crime => ({
     "type": "Feature",
     "properties": {
       "cluster": false,
@@ -80,7 +94,7 @@ export function SearchComponent() {
     },
     // Son las coordenadas de cada marca
     // se hace un parseFloat porque vienen como string de la api
-    "geometry": { "type": "Point", "coordinates": [ parseFloat(crime.location.longitude), parseFloat(crime.location.latitude) ] }
+    "geometry": { "type": "Point", "coordinates": [ parseFloat(crime.longitud), parseFloat(crime.latitud) ] }
   }));
   // 3) get clusters
 
