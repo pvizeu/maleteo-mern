@@ -172,7 +172,7 @@ export function SearchComponent() {
               >
               {/* este es el icono a mostrar */}
                 <button className="place-pin">
-                  <img src="/place.svg" alt="place"/>
+                  <img src="/place.png" alt="place"/>
                 </button>
               </Marker>
             );
