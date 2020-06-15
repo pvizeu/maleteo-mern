@@ -96,6 +96,7 @@ export function SearchComponent() {
   // 4) render map
   return (
     <> 
+    <Search panTo={panTo} className="input" />
     <div className="map">
         <GoogleMapReact
           // Key
@@ -179,10 +180,9 @@ export function SearchComponent() {
 
 
         </GoogleMapReact>
-        <div>Icons made by
-          <a href="https://www.flaticon.com/free-icon/place_1452563" title="Kiranshastry"> Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></div>
+        {/* <div>Icons made by
+          <a href="https://www.flaticon.com/free-icon/place_1452563" title="Kiranshastry"> Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></div>*/}
         </div>
-        <Search panTo={panTo} />
         </>
   );
 }
@@ -229,12 +229,14 @@ function Search({ panTo }) {
   return (
     //input donde buscas la ubicacion
     <div className="search">
-      <Combobox onSelect={handleSelect}>
+      <Combobox onSelect={handleSelect}
+      className="search-container">
         <ComboboxInput
               //Formato establecido por la libreria
           value={value}
           onChange={handleInput}
           placeholder="¿Donde te encuentras?"
+          className="search"
         />
         {/* ComboboxPopover es la caja que almacena las sugerencias */}
         <ComboboxPopover>
