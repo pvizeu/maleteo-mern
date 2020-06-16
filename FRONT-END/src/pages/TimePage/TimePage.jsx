@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './TimePage.scss';
 import {NavComponent} from "../../shared/components/NavComponent/NavComponent";
 import {ArrowBackComponent} from "../../shared/components/ArrowBackComponent/ArrowBackComponent";
@@ -29,6 +29,7 @@ export function TimePage(){
           <span className="b-title time__element">Deposito</span>
           <select className="b-select time__element time__border-orange">
             {time.map((item, index)=> <option key={index}>{item}</option>)}
+
           </select>
         </div>
         <div>

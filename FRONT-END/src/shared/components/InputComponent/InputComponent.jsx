@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import "./InputComponent.scss"
+import calendario from "../../img/icons8Calendar100Copy@3x.jpg"
+import lupa from "../../img/lupa@3x.jpg"
+import maleta from "../../img/maletita@3x.jpg"
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
@@ -40,8 +44,9 @@ export function InputComponent() {
         onSelect={handleSelect}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <input {...getInputProps({ placeholder: "¿Donde te encuentras?" })} />
+          <div className='container'>
+              <img className="img3" src={lupa}/>
+              <input  className="where" {...getInputProps({ placeholder: "¿Donde te encuentras? Madrid, Barcelona..." })}/>
 
             <div>
               {/* Si loading es true devuelve ..loading */}
@@ -67,14 +72,34 @@ export function InputComponent() {
       </PlacesAutocomplete>
       {/* Redirecciona al mapa con la direccion seleccionada */}
       <form>
-        <Link to={"/calendar"}><button className="col-6">Deposito</button></Link>
-        <Link to={"/calendar"}><button className="col-6">Retirada</button></Link>
-        <Link to={"/calendar"}><button className="col-4">Nº de piezas</button> </Link>
+        <div className="c-form">
+          <div className="c-prueba">
+              <Link to={"/calendar"}>
+                <img src={calendario} className="img"/>
+              </Link>
+              <input placeholder="Deposito" className="retirada"/>
+          </div>
+            <div className="c-prueba2">
+                <Link to={"/calendar"}>
+                    <img src={calendario} className="img"/>
+                </Link>
+                <input placeholder="Retirada" className="retirada"/>
+            </div>
+        </div>
+       <div className="c-form2">
+           <div className="c-prueba">
+               <Link to={"/calendar"}>
+                   <img src={maleta} className="img2"/>
+               </Link>
+               <input placeholder="Nº de piezas" className="retirada"/>
+           </div>
+           <div className="c-prueba3">
+               <Link to={`/search/?lat=${coordinates.lat}&lng=${coordinates.lng}`}>
+                   <button className="b-btn">Continuar</button>
+               </Link>
+           </div>
 
-
-        <Link to={`/search/?lat=${coordinates.lat}&lng=${coordinates.lng}`}>
-          <button className="b-btn">Continuar</button>
-        </Link>
+       </div>
       </form>
     </div>
   );
