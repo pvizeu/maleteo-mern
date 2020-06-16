@@ -1,6 +1,6 @@
 .c-carrousel{
     margin-left: 25px;
-  
+
   &__overflow{
     height: 200px;
     width: 100%;
@@ -17,24 +17,24 @@
       overflow: hidden;
       border-top: 5px solid lightblue;
       box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: row;
     }
-  
-    &__text{
-      margin-top: -50%;
-      color: white;
-      width: 150px;
-    }
-  
+    
     &__img{
       height: 180px;
       width: 50%;
       position: relative;
     }
+
+    &__details{
+        border: 10px solid yellow;
+    }
   
   }
   
   .final{
-    width: 30px;
+    width: 50%;
     height: 180px;
     border-left: solid 25px rgba(0 , 0,0,0.0);
   }
