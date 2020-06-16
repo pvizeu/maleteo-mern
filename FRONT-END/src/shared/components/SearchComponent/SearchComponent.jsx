@@ -19,6 +19,7 @@ import {
 import "@reach/combobox/styles.css";
 import { useLocation } from "react-router-dom";
 import {environment} from "../../../environments/environment";
+import { getDistance } from 'geolib';
 
 
 // Fetcher es una funcion que recibe la clave y devuelve una promesa con los datos a cargar en Json
@@ -48,8 +49,7 @@ export function SearchComponent() {
     lat: (lat ? lat : 40.4),
     lng: (lng ? lng : -3.7)
   };
-  const resolution = 12;
-
+  const resolution = 12; 
    //haciendolos el centro del mapa
 
   const panTo = React.useCallback(({ lat, lng }) => {

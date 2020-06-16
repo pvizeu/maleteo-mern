@@ -1,36 +1,27 @@
-import React from 'react';
+import React , { useEffect, useState } from 'react';
 import './SearchPage.scss';
 import { SearchComponent } from '../../shared/components/SearchComponent/SearchComponent';
 import { NavComponent } from '../../shared/components/NavComponent/NavComponent';
 import { CarrouselComponent } from '../../shared/components/CarrouselComponent/CarrouselComponent';
+import {environment} from "../../environments/environment";
+import axios from 'axios';
 
 export function SearchPage() {
-
     
-    const exp = [{
-     title : "Un pedazito de italia",
-    descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta lacus a vestibulum rhoncus. Nulla vehicula ligula eget mollis mattis. Duis pellentesque tincidunt feugiat ",
-     img : "https://www.ef.com/sitecore/__/~/media/universal/pg/8x5/destination/IT_00_00_1.jpg",
-    },{
-      title : "Visita Barcelona",
-    descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta lacus a vestibulum rhoncus. Nulla vehicula ligula eget mollis mattis. Duis pellentesque tincidunt feugiat ",
-    img : "https://gd-consejosdeespana.sfo2.cdn.digitaloceanspaces.com//2015/05/Sagrada-Familia-Barcelona.jpg",
-    },
-    {
-      title : "Un pedazito de italia",
-     descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta lacus a vestibulum rhoncus. Nulla vehicula ligula eget mollis mattis. Duis pellentesque tincidunt feugiat ",
-      img : "https://www.ef.com/sitecore/__/~/media/universal/pg/8x5/destination/IT_00_00_1.jpg",
-     },{
-       title : "Visita Barcelona",
-     descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porta lacus a vestibulum rhoncus. Nulla vehicula ligula eget mollis mattis. Duis pellentesque tincidunt feugiat ",
-     img : "https://gd-consejosdeespana.sfo2.cdn.digitaloceanspaces.com//2015/05/Sagrada-Familia-Barcelona.jpg",
-     }]
+  const [ espacios, setEspacios ] = useState([])
+
+  useEffect(()=>{
+      axios.get(environment.url+'spaces').then(res=>{
+        console.log(res.data.data);
+        setEspacios(res.data.data);
+      })
+    },[])
 
   return (
     <div>
       <SearchComponent/>
       <div className="car" >
-      <CarrouselComponent blogs={exp}/>
+      <CarrouselComponent espacios={espacios}/>
       </div>
       <NavComponent/>
     </div>
