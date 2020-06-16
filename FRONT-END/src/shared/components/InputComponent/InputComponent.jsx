@@ -66,11 +66,16 @@ export function InputComponent() {
         )}
       </PlacesAutocomplete>
       {/* Redirecciona al mapa con la direccion seleccionada */}
-      <Link to={`/search/?lat=${coordinates.lat}&lng=${coordinates.lng}`} >
-      <button>
-     Continuar
-      </button>
-      </Link>
+      <form>
+        <Link to={"/calendar"}><button className="col-6">Deposito</button></Link>
+        <Link to={"/calendar"}><button className="col-6">Retirada</button></Link>
+        <Link to={"/calendar"}><button className="col-4">Nº de piezas</button> </Link>
+
+
+        <Link to={`/search/?lat=${coordinates.lat}&lng=${coordinates.lng}`}>
+          <button className="b-btn">Continuar</button>
+        </Link>
+      </form>
     </div>
   );
 } 
