@@ -10,7 +10,7 @@ import PlacesAutocomplete, {
 
 export function InputComponent(props) {
 
-  const [address, setAddress] = useState("");
+  const [localization, setLocalization] = useState("");
   const [coordinates, setCoordinates] = useState({
     lat: null,
     lng: null
@@ -28,12 +28,12 @@ export function InputComponent(props) {
     //getLatLng
     //devuelve el centro de la zona seleccionada anteriormente
     const latLng = await getLatLng(results[0]);
-    setAddress(value);
+    setLocalization(value);
     setCoordinates(latLng);
 
     props.fnUpdateForm({
       latLng: latLng,
-      address: value
+      localization: value
     })
   };
   return (
@@ -41,8 +41,8 @@ export function InputComponent(props) {
 
       <PlacesAutocomplete
       //Formato establecido por la libreria
-        value={address}
-        onChange={setAddress}
+        value={localization}
+        onChange={setLocalization}
         onSelect={handleSelect}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (

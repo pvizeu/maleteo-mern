@@ -24,7 +24,7 @@ export function HomePage() {
 
   const [lat, setLat] = useState([]);
   const [lng, setLng] = useState([]);
-  const [address, setAddress] = useState([]);
+  const [localization, setLocalization] = useState([]);
   const deliver = query.get("deliver");
   const removal = query.get("removal");
   const pieces = query.get("pieces");
@@ -35,7 +35,7 @@ export function HomePage() {
     console.log(pieces);
     console.log(lat);
     console.log(lng);
-    console.log(address);
+    console.log(localization);
 
     useEffect(()=>{
         axios.get(environment.url +'experiences').then(res=>{
@@ -51,7 +51,7 @@ export function HomePage() {
     const updateForm = (datos) => {
       setLat(datos.latLng.lat);
       setLng(datos.latLng.lng);
-      setAddress(datos.address);
+      setLocalization(datos.localization);
     }
     return(
         <div className="home">
@@ -80,7 +80,7 @@ export function HomePage() {
                 <input placeholder="Nº de piezas" value={pieces ? pieces : ""} className="retirada"/>
               </div>
               <div className="c-prueba3">
-                <Link to={`/search/?lat=${lat}&lng=${lng}&address=${address}&deliver=${deliver}&removal=${removal}`}>
+                <Link to={`/search/?lat=${lat}&lng=${lng}&localization=${localization}&deliver=${deliver}&removal=${removal}`}>
                   <button className="b-btn">Continuar</button>
                 </Link>
               </div>
