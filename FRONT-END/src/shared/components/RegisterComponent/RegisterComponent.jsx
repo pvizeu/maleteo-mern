@@ -22,45 +22,45 @@ export function RegisterComponent () {
             console.log(data)
              axios.post(environment.url+'new',data).then(res=>console.log('respuestaa',data));
         }else{
-            alert ("menor")
+            alert ("Edad invalida")
         }
     }
 
     return(
-        <div className="c-login">
-            <form onSubmit={handleSubmit(onSubmit)}>
-            <label className="c-login__label" htmlFor="email" >
+        <div className="c-register">
+            <form onSubmit={handleSubmit(onSubmit)} className="c-register__form">
+            <label className="c-register__label" htmlFor="email" >
                     <span className="b-text-label ">Direccion de correo electronico</span>
 
-                    <input className="c-login__input" name="email" id="email"
+                    <input className="c-register__input" name="email" id="email"
                            ref={register({ required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })}/>
                     {errors.email && <span>Este campo es requerido</span>}
                 </label >
-                <label className="c-login__label" htmlFor="name">
+                <label className="c-register__label" htmlFor="name">
                     <span className="b-text-label ">Nombre</span>
 
-                    <input className="c-login__input" name="name" id="name"
+                    <input className="c-register__input" name="name" id="name"
                            ref={register({ required: true})}/>
                     {errors.email && <span>Este campo es requerido</span>}
                 </label >
-                <label className="c-login__label" htmlFor="LastName">
+                <label className="c-register__label" htmlFor="LastName">
                     <span className="b-text-label">Apellido</span>
 
-                    <input className="c-login__input" name="surname" id="lastName"
+                    <input className="c-register__input" name="surname" id="lastName"
                            ref={register({ required: true})}/>
                     {errors.email && <span>Este campo es requerido</span>}
                 </label >
-                <label className="c-login__label" htmlFor="password">
+                <label className="c-register__label" htmlFor="password">
                     <span className="b-text-label ">Contraseña</span>
 
-                    <input className="c-login__input" name="password" id="password" type='password'
+                    <input className="c-register__input" name="password" id="password" type='password'
                            ref={register({ required: true})}/>
                     {errors.email && <span>Este campo es requerido</span>}
                 </label >
-                <label className="c-login__label" htmlFor="date">
+                <label className="c-register__label" htmlFor="date">
                     <span className="b-text-label ">Contraseña</span>
 
-                    <input className="c-login__input" name="date" id="date" type='date'
+                    <input className="c-register__input" name="date" id="date" type='date'
                            ref={register({ required: true})}/>
                     {errors.email && <span>Este campo es requerido</span>}
                 </label >
