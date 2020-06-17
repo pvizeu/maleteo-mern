@@ -22,13 +22,14 @@ export function RegisterComponent () {
             console.log(data)
              axios.post(environment.url+'new',data).then(res=>console.log('respuestaa',data));
         }else{
-            alert ("menor")
+            alert ("Edad invalida")
         }
     }
 
     return(
         <div className="c-register">
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} className="c-register__form">
+
             <label className="c-register__label" htmlFor="email" >
                     <span className="b-text-label ">Direccion de correo electronico</span>
 
@@ -64,7 +65,7 @@ export function RegisterComponent () {
                            ref={register({ required: true})}/>
                     {errors.email && <span>Este campo es requerido</span>}
                 </label >
-                <button className="b-btn">Resgistrarse</button>
+                <button className="b-btn c-register__btn">Resgistrarse</button>
 
             </form>
         </div>

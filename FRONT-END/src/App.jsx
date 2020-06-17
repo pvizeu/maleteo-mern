@@ -15,6 +15,7 @@ import { CalendarPage } from './pages/CalendarPage/CalendarPage';
 import {LoginPage} from "./pages/LoginPage/LoginPage";
 import {RegisterPage} from "./pages/RegisterPage/RegisterPage";
 import {TimePage} from "./pages/TimePage/TimePage";
+import {SpaceDetailsPage} from "./pages/SpaceDetailsPage/SpaceDetailsPage";
 
 function App() {
   return (
@@ -54,8 +55,8 @@ function App() {
         <Route path="/confirmation">
           <GuardianConfirmationPage/>
         </Route>
-        <Route path="/location/:id">
-          <LocationPage/>
+        <Route path="/location/">
+          <SpaceDetailsPage/>
         </Route>
         <Route path="/prices">
           <PricesPage/>
