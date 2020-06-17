@@ -6,7 +6,9 @@ import {ExperienceComponent} from "../../shared/components/ExprienceComponent/Ex
 import {NavComponent} from "../../shared/components/NavComponent/NavComponent";
 import "./HomePage.scss";
 import { InputComponent } from '../../shared/components/InputComponent/InputComponent'
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
+import calendario from "../../shared/img/icons8Calendar100Copy@3x.jpg";
+import maleta from "../../shared/img/maletita@3x.jpg";
 
 
 
@@ -20,12 +22,12 @@ export function HomePage() {
   }
   let query = useQuery();
 
-    const deliver = query.get("deliver");
-    const removal = query.get("removal");
-    const pieces = query.get("pieces");
-    const [lat, setLat] = useState([]);
-    const [lng, setLng] = useState([]);
-    const [address, setAddress] = useState([]);
+  const [lat, setLat] = useState([]);
+  const [lng, setLng] = useState([]);
+  const [address, setAddress] = useState([]);
+  const deliver = query.get("deliver");
+  const removal = query.get("removal");
+  const pieces = query.get("pieces");
 
 //mostrando los datos de la query
     console.log(deliver);
@@ -37,7 +39,6 @@ export function HomePage() {
 
     useEffect(()=>{
         axios.get(environment.url +'experiences').then(res=>{
-            console.log(res.data.data);
             setExperiences(res.data.data);
         })
     },[])
@@ -55,7 +56,36 @@ export function HomePage() {
     return(
         <div className="home">
           <p className="b-title">Encuentra tu guardian</p>
-          <InputComponent fnUpdateForm={(datos)=>{updateForm(datos)}}/>
+          <form>
+            <InputComponent fnUpdateForm={(datos)=>{updateForm(datos)}}/>
+            <div className="c-form">
+              <div className="c-prueba">
+                <Link to={"/calendar"}>
+                  <img src={calendario} className="img"/>
+                </Link>
+                <input placeholder="Deposito" className="retirada"/>
+              </div>
+              <div className="c-prueba2">
+                <Link to={"/calendar"}>
+                  <img src={calendario} className="img"/>
+                </Link>
+                <input placeholder="Retirada" className="retirada"/>
+              </div>
+            </div>
+            <div className="c-form2">
+              <div className="c-prueba">
+                <Link to={"/calendar"}>
+                  <img src={maleta} className="img2"/>
+                </Link>
+                <input placeholder="Nº de piezas" className="retirada"/>
+              </div>
+              <div className="c-prueba3">
+                <Link to={`/search/?lat=${lat}&lng=${lng}&address=${address}&deliver=${deliver}&removal=${removal}`}>
+                  <button className="b-btn">Continuar</button>
+                </Link>
+              </div>
+            </div>
+          </form>
           <NewsComponent blogs={blogs}/> 
           <ExperienceComponent exp={experiences}/>
           <button className="b-btn home__button">Mostrar más</button>

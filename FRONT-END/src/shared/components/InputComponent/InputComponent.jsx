@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import "./InputComponent.scss"
+import calendario from "../../img/icons8Calendar100Copy@3x.jpg"
+import lupa from "../../img/lupa@3x.jpg"
+import maleta from "../../img/maletita@3x.jpg"
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
@@ -32,8 +36,6 @@ export function InputComponent(props) {
       address: value
     })
   };
-
-  console.log(address);
   return (
     <div>
 
@@ -44,8 +46,9 @@ export function InputComponent(props) {
         onSelect={handleSelect}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <input {...getInputProps({ placeholder: "¿Donde te encuentras?" })} />
+          <div className='container'>
+              <img className="img3" src={lupa}/>
+              <input  className="where" {...getInputProps({ placeholder: "¿Donde te encuentras? Madrid, Barcelona..." })}/>
 
             <div>
               {/* Si loading es true devuelve ..loading */}
