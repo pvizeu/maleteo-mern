@@ -7,7 +7,6 @@ import { GetStartedPage } from './pages/GetStartedPage/GetStartedPage';
 import {PricesPage} from "./pages/PricesPage/PricesPage";
 import {HomePage} from "./pages/HomePage/HomePage";
 import {SearchPage} from "./pages/SearchPage/SearchPage";
-import {LocationPage} from "./pages/LocationPage/LocationPage";
 import {ReserveDetailsPage} from "./pages/ReserveDetailsPage/ReserveDetailsPage";
 import {ReserveCompletePage} from "./pages/ReserveCompletePage/ReserveCompletePage";
 import {GuardianConfirmationPage} from "./pages/GuardianConfirmationPage/GuardianConfirmationPage";

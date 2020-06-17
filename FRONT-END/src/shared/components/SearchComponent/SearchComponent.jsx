@@ -3,7 +3,6 @@ import axios from 'axios';
 import './SearchComponent.scss';
 import GoogleMapReact from 'google-map-react';
 import credentials from "./credentials/credentials.js";
-import useSwr from 'swr';
 import useSupercluster from "use-supercluster";
 import usePlacesAutocomplete, {
   getGeocode,
@@ -22,7 +21,6 @@ import {environment} from "../../../environments/environment";
 
 
 // Fetcher es una funcion que recibe la clave y devuelve una promesa con los datos a cargar en Json
-const fetcher = (...arg) => fetch(...arg).then(response => response.json());
 
 //  Se necesita este componente para pasarle la ubicacion como props al google-reactt-map
 const Marker = ({children}) => children;

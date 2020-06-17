@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 40px;
 
     &__form, &__label{
         display: flex;
@@ -26,6 +27,7 @@
     }
 
     &__btn{
+        margin-top: 10px;
         text-align: center;
         width: 100%;
     }
