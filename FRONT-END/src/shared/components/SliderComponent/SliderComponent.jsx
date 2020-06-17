@@ -1,11 +1,28 @@
 import React from 'react';
-
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export function SliderComponent (props) {
-    console.log(props.info);
+    console.log(props.info.photos);
+
+    let spacePhotos = [];
+
+    (props.info.photos).forEach(element => {
+        spacePhotos.push(element[0])
+    });
+
+
 
     return(
-      <>
+      <div>
+      <div>
+          <Carousel showThumbs={false}>
+              {spacePhotos.map ( (item, index)=>
+              <div key={index}>
+                <img src={item} alt="/"/>
+              </div> )}
+          </Carousel>
+      </div>
           <p>{props.info.alias}</p>
           <p>Tetuan, Madrid</p>
           <p>{props.info.availability}</p>
@@ -47,19 +64,19 @@ export function SliderComponent (props) {
           <div>
               <p className="b-title">Reseñas</p>
               <div>
-                  <img src="https://res.cloudinary.com/dqp7c3bnr/image/upload/v1592238573/espacios-guardianes/living-room-2583032_640_rhsqwa.jpg" alt=""/>
+                  {/* <img src="https://res.cloudinary.com/dqp7c3bnr/image/upload/v1592238573/espacios-guardianes/living-room-2583032_640_rhsqwa.jpg" alt=""/> */}
                   <p>{props.info.alias}</p>
                   <p>En Julio de 2019</p>
                   <p>{props.info.locker}</p>
               </div>
               <div>
-                  <img src="https://res.cloudinary.com/dqp7c3bnr/image/upload/v1592238573/espacios-guardianes/living-room-2583032_640_rhsqwa.jpg" alt=""/>
+                  {/* <img src="https://res.cloudinary.com/dqp7c3bnr/image/upload/v1592238573/espacios-guardianes/living-room-2583032_640_rhsqwa.jpg" alt=""/> */}
                   <p>{props.info.alias}</p>
                   <p>En Julio de 2019</p>
                   <p>{props.info.locker}</p>
               </div>
               <div>
-                  <img src="https://res.cloudinary.com/dqp7c3bnr/image/upload/v1592238573/espacios-guardianes/living-room-2583032_640_rhsqwa.jpg" alt=""/>
+                  {/* <img src="https://res.cloudinary.com/dqp7c3bnr/image/upload/v1592238573/espacios-guardianes/living-room-2583032_640_rhsqwa.jpg" alt=""/> */}
                   <p>{props.info.alias}</p>
                   <p>En Julio de 2019</p>
                   <p>{props.info.locker}</p>
@@ -80,10 +97,10 @@ export function SliderComponent (props) {
 
           <div>
               <p>Total <strong>12 $</strong></p>
-              <a href="">Desglose del precio</a>
+              <a href="/">Desglose del precio</a>
               <button className="b-btn">Reservar Ahora</button>
           </div>
-      </>
+      </div>
 
     )
 }

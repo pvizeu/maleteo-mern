@@ -31,35 +31,35 @@ export function RegisterComponent () {
             <form onSubmit={handleSubmit(onSubmit)} className="c-register__form">
 
             <label className="c-register__label" htmlFor="email" >
-                    <span className="b-text-label ">Direccion de correo electronico</span>
+                    <span className="b-subtitle">Direccion de correo electronico</span>
 
                     <input className="c-register__input" name="email" id="email"
                            ref={register({ required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })}/>
                     {errors.email && <span>Este campo es requerido</span>}
                 </label >
                 <label className="c-register__label" htmlFor="name">
-                    <span className="b-text-label ">Nombre</span>
+                    <span className="b-subtitle">Nombre</span>
 
                     <input className="c-register__input" name="name" id="name"
                            ref={register({ required: true})}/>
                     {errors.email && <span>Este campo es requerido</span>}
                 </label >
                 <label className="c-register__label" htmlFor="LastName">
-                    <span className="b-text-label">Apellido</span>
+                    <span className="b-subtitle">Apellido</span>
 
                     <input className="c-register__input" name="surname" id="lastName"
                            ref={register({ required: true})}/>
                     {errors.email && <span>Este campo es requerido</span>}
                 </label >
                 <label className="c-register__label" htmlFor="password">
-                    <span className="b-text-label ">Contraseña</span>
+                    <span className="b-subtitle">Contraseña</span>
 
                     <input className="c-register__input" name="password" id="password" type='password'
                            ref={register({ required: true})}/>
                     {errors.email && <span>Este campo es requerido</span>}
                 </label >
                 <label className="c-register__label" htmlFor="date">
-                    <span className="b-text-label ">Contraseña</span>
+                    <span className="b-subtitle">Fecha de nacimiento</span>
 
                     <input className="c-register__input" name="date" id="date" type='date'
                            ref={register({ required: true})}/>

@@ -23,7 +23,7 @@ export function SpaceDetailsPage() {
     localization: "xxxx1ssss",
     locker: "El hall es un sitio espacioso y limpio que fue modificado 222",
     longitud: -3.709394,
-    photos: (2) [["https://res.cloudinary.com/dqp7c3bnr/image/upload/v1592238573/espacios-guardianes/alojamientoCopy_3x_gx6qwm.png"],["https://res.cloudinary.com/dqp7c3bnr/image/upload/v1592238573/espacios-guardianes/living-room-2583032_640_rhsqwa.jpg"]],
+    photos: [["https://res.cloudinary.com/dqp7c3bnr/image/upload/v1592238573/espacios-guardianes/alojamientoCopy_3x_gx6qwm.png"],["https://res.cloudinary.com/dqp7c3bnr/image/upload/v1592238573/espacios-guardianes/living-room-2583032_640_rhsqwa.jpg"]],
     property: "casa",
     services: "bajamos de 10 a 4 euros mas llevamos a donde quiera dentro de la M30",
     space: "hall",

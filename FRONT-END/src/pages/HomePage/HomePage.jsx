@@ -61,13 +61,13 @@ export function HomePage() {
             <div className="c-form">
               <div className="c-prueba">
                 <Link to={"/calendar"}>
-                  <img src={calendario} className="img"/>
+                  <img src={calendario} className="img" alt="/"/>
                 </Link>
                 <input placeholder="Deposito" value={deliver ? deliver : ""} className="retirada"/>
               </div>
               <div className="c-prueba2">
                 <Link to={"/calendar"}>
-                  <img src={calendario} className="img"/>
+                  <img src={calendario} className="img" alt="/"/>
                 </Link>
                 <input placeholder="Retirada" value={removal ? removal : ""} className="retirada"/>
               </div>
@@ -75,7 +75,7 @@ export function HomePage() {
             <div className="c-form2">
               <div className="c-prueba">
                 <Link to={"/calendar"}>
-                  <img src={maleta} className="img2"/>
+                  <img src={maleta} className="img2" alt="/"/>
                 </Link>
                 <input placeholder="Nº de piezas" value={pieces ? pieces : ""} className="retirada"/>
               </div>

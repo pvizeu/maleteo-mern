@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import "./InputComponent.scss"
-import calendario from "../../img/icons8Calendar100Copy@3x.jpg"
 import lupa from "../../img/lupa@3x.jpg"
-import maleta from "../../img/maletita@3x.jpg"
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
 } from "react-places-autocomplete";
-import { Link } from "react-router-dom";
 
 //GET XY FROM DIRECTION
 
@@ -18,6 +15,9 @@ export function InputComponent(props) {
     lat: null,
     lng: null
   });
+
+  console.log(coordinates);
+  
 
   // Seteando variables de el state
   //Aqui cambia la direccion por las coordenadas
@@ -47,10 +47,10 @@ export function InputComponent(props) {
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div className='container'>
-              <img className="img3" src={lupa}/>
+              <img className="img3" src={lupa} alt="/"/>
               <input  className="where" {...getInputProps({ placeholder: "¿Donde te encuentras? Madrid, Barcelona..." })}/>
 
-            <div>
+            <div className="suggestion-box">
               {/* Si loading es true devuelve ..loading */}
               {loading ? <div>...loading</div> : null}
 
@@ -62,7 +62,7 @@ export function InputComponent(props) {
                 };
 
                 return (
-                  <div {...getSuggestionItemProps(item, { style })}>
+                  <div className="suggestion-box" {...getSuggestionItemProps(item, { style })}>
                    {/* Devuelve un objeto, que su clave descripcion es la direccion en texto */}                    
                     {item.description}
                   </div>
