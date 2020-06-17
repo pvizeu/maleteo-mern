@@ -76,12 +76,12 @@ export function SearchComponent() {
     })
   },[])
 
-  const url =
-    "https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2019-10";
+  // const url =
+    // "https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2019-10";
   // Se utiliza el hook Swr para cambiar el formato de los datos
   // data y error son las claves con que vamos a trabajar dentro de los objetos que devuelve el fetcher
-  const {data, error} = useSwr(url, fetcher);
-  const crimes = data && !error ? data : [];
+  // const {data, error} = useSwr(url, fetcher);
+  // const crimes = data && !error ? data : [];
   //console.log(crimes);
   // se hace un map para que devuelva un objeto que luego recibe el superCluster 
   // points = marcas

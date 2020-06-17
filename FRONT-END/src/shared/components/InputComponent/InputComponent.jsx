@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 //GET XY FROM DIRECTION
 
-export function InputComponent() {
+export function InputComponent(props) {
 
   const [address, setAddress] = useState("");
   const [coordinates, setCoordinates] = useState({
@@ -24,12 +24,16 @@ export function InputComponent() {
     //getLatLng
     //devuelve el centro de la zona seleccionada anteriormente
     const latLng = await getLatLng(results[0]);
-    
     setAddress(value);
     setCoordinates(latLng);
+
+    props.fnUpdateForm({
+      latLng: latLng,
+      address: value
+    })
   };
 
-
+  console.log(address);
   return (
     <div>
 
@@ -65,17 +69,6 @@ export function InputComponent() {
           </div>
         )}
       </PlacesAutocomplete>
-      {/* Redirecciona al mapa con la direccion seleccionada */}
-      <form>
-        <Link to={"/calendar"}><button className="col-6">Deposito</button></Link>
-        <Link to={"/calendar"}><button className="col-6">Retirada</button></Link>
-        <Link to={"/calendar"}><button className="col-4">Nº de piezas</button> </Link>
-
-
-        <Link to={`/search/?lat=${coordinates.lat}&lng=${coordinates.lng}`}>
-          <button className="b-btn">Continuar</button>
-        </Link>
-      </form>
     </div>
   );
 } 
