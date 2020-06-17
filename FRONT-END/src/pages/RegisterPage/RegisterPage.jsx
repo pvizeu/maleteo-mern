@@ -10,7 +10,7 @@ export function RegisterPage() {
     <div>
       <ArrowBackComponent />
       <SwitchComponent className="switch"/>
-      <h1 className="p-title">Inicia sesión ahora</h1>
+      <h1 className="p-title">Únete a Maleteo y disfruta de sus ventajas</h1>
       <SocialMediaComponent/>
       <div className="correo">
       <span className="p-subtitle">O utiliza tu correo electronico</span>

@@ -9,6 +9,7 @@
     border: 1px solid #F78712;
     background-color: white;
     color: #F78712;
+    width: 250px;
   }
 }
 .b-title{
@@ -20,7 +21,6 @@
   width: 85%;
   height: 29pt;
   text-align: center;
-  align-content: center;
   border-radius: 3pt;
   border: none;
   background-color: rgb(251,251,251);
@@ -44,16 +44,7 @@
   border-radius: 3pt;
   border: none;
   text-align: center;
-  margin-top: 10pt;
   margin-top: 9pt;
-}
-.c-form2{
-  text-align: center;
-}
-
-.b-btn{
-  height: 100%;
-  width: 40vw;
 }
 .img{
   width: 8pt;
@@ -66,37 +57,8 @@
   margin-right: 10pt;
 }
 .img3{
-  width: 9pt;
-  height: 9pt;
+  width: 12pt;
+  height: 12pt;
   margin-right: 10pt;
 }
-.c-prueba{
-  align-content: center;
-  margin: 7.5pt;
-  margin-left: 8%;
-  height: 29pt;
-  width: 40vw;
-  background-color: rgb(251,251,251);
-  border-radius: 3pt;
-  border: none;
-  float: left;
-}
-.c-prueba2{
-  align-content: center;
-  margin: 7.5pt;
-  height: 29pt;
-  width: 40vw;
-  background-color: rgb(251,251,251);
-  border-radius: 3pt;
-  border: none;
-  float: left;
-}
-.c-prueba3{
-  align-content: center;
-  margin: 7.5pt;
-  height: 29pt;
-  width: 40vw;
-  border-radius: 3pt;
-  border: none;
-  float: left;
-}
+

@@ -63,13 +63,13 @@ export function HomePage() {
                 <Link to={"/calendar"}>
                   <img src={calendario} className="img"/>
                 </Link>
-                <input placeholder="Deposito" className="retirada"/>
+                <input placeholder="Deposito" value={deliver ? deliver : ""} className="retirada"/>
               </div>
               <div className="c-prueba2">
                 <Link to={"/calendar"}>
                   <img src={calendario} className="img"/>
                 </Link>
-                <input placeholder="Retirada" className="retirada"/>
+                <input placeholder="Retirada" value={removal ? removal : ""} className="retirada"/>
               </div>
             </div>
             <div className="c-form2">
@@ -77,7 +77,7 @@ export function HomePage() {
                 <Link to={"/calendar"}>
                   <img src={maleta} className="img2"/>
                 </Link>
-                <input placeholder="Nº de piezas" className="retirada"/>
+                <input placeholder="Nº de piezas" value={pieces ? pieces : ""} className="retirada"/>
               </div>
               <div className="c-prueba3">
                 <Link to={`/search/?lat=${lat}&lng=${lng}&address=${address}&deliver=${deliver}&removal=${removal}`}>
