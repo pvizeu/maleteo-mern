@@ -1,6 +1,6 @@
 .c-nav{
   width: 100vw;
-  height: 30pt;
+  height: 32pt;
   display: flex;
   justify-content: space-around;
   align-content: center;
@@ -8,7 +8,7 @@
   bottom: 0;
   position: fixed;
   border-top: rgba(193, 193, 193, 0.8) 1px solid;
-  padding-top: 15px;
+  padding-top: 10px;;  
 
   &__home{
     width: 16.5pt;

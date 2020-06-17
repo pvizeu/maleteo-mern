@@ -19,7 +19,6 @@ import {
 import "@reach/combobox/styles.css";
 import { useLocation } from "react-router-dom";
 import {environment} from "../../../environments/environment";
-import { getDistance } from 'geolib';
 
 
 // Fetcher es una funcion que recibe la clave y devuelve una promesa con los datos a cargar en Json
@@ -49,7 +48,7 @@ export function SearchComponent() {
     lat: (lat ? lat : 40.4),
     lng: (lng ? lng : -3.7)
   };
-  const resolution = 12; 
+  const resolution = 16; 
    //haciendolos el centro del mapa
 
   const panTo = React.useCallback(({ lat, lng }) => {
@@ -204,6 +203,9 @@ export function SearchComponent() {
 // funcion para buscar una ubicacion 
 function Search({ panTo }) {
 
+  let latitude;
+  let longitude;
+
   const {
     value,
     suggestions: { status, data },
@@ -226,23 +228,27 @@ function Search({ panTo }) {
   const handleSelect = async (address) => {
     setValue(address, false);
     clearSuggestions();
-    console.log(address)
 // funcion para convertir la direccion pasada a coordenadas
     try {
       const results = await getGeocode({ address });
          //getGeoCode
     //devuelve los limites de la zona seleccionada
       const { lat, lng } = await getLatLng(results[0]);
+      latitude = lat;
+      longitude = lng;
          //getLatLng
     //devuelve el centro de la zona seleccionada anteriormente
       panTo({ lat, lng });
     } catch (error) {
       console.log("Error: ", error);
     }
+    console.log(latitude);
+    console.log(longitude)
+    window.location.replace(`/search/?lat=${latitude}&lng=${longitude}`)
   };
   return (
     //input donde buscas la ubicacion
-    <div className="search">
+    <div>
       <Combobox onSelect={handleSelect}
       className="search-container">
         <ComboboxInput

@@ -1,5 +1,5 @@
 .c-carrousel{
-    margin-left: 25px;
+    margin-left: 0px;
 
   &__overflow{
     height: 200px;
@@ -28,13 +28,27 @@
     }
 
     &__details{
-        border: 10px solid yellow;
+      padding-left: 10px;
+    }
+
+    &__title{
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    &__ubicacion{
+      font-size: 10px;
     }
   
+    &__final{
+      width: 50%;
+      height: 180px;
+      border-left: solid 25px rgba(0 , 0,0,0.0);
+    }
+  }
+
+  .loading{
+    height: auto;
+    width: 100px;
   }
   
-  .final{
-    width: 50%;
-    height: 180px;
-    border-left: solid 25px rgba(0 , 0,0,0.0);
-  }
