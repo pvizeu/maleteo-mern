@@ -242,7 +242,7 @@ function Search({ panTo }) {
     }
     console.log(latitude);
     console.log(longitude)
-    window.location.replace(`/search/?lat=${latitude}&lng=${longitude}`)
+    window.location.replace(`/search/?latitude=${latitude}&longitude=${longitude}`)
   };
   return (
     //input donde buscas la ubicacion
