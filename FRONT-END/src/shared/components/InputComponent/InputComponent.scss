@@ -80,5 +80,6 @@
   float: left;
 }
 .suggestion-box{
-  background-color: white;
+  position: relative;
+  z-index: 2;
 }
