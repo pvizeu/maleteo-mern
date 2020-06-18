@@ -15,9 +15,6 @@ export function GuardianDetailsComponent (props) {
           <p className="b-text" > Guardian: {props.info.alias}</p>
           </div>
 
-        {/* //////////////////////////////////////////// */}
-
-
           <div className="c-guardian-details__type">
               <div>
                 <img src={house} alt="/" className="c-guardian-details__icon" />
@@ -27,7 +24,6 @@ export function GuardianDetailsComponent (props) {
                 <p className="c-guardian-details__type-text">{info.locker}</p>
                 </div>
             </div>
-          {/* //////////////////////////////////////////// */}
 
         <div className="c-guardian-details__description">
 
@@ -35,28 +31,19 @@ export function GuardianDetailsComponent (props) {
 
         </div>
 
-          {/* //////////////////////////////////////////// */}
-
-          <div className="c-guardian-ubicacion">
-              <div className="c-guardian-ubicacion__text" >
+          <div className="c-guardian-details__ubicacion">
+              <div className="c-guardian-details__ubicacion-text" >
               <p className="b-subtitle">Ubicacion</p>
               </div>
-              <img src="https://storage.googleapis.com/support-forums-api/attachment/thread-9014924-11470506657998028469.JPG" alt="" className="c-guardian-ubicacion__img" />
+              <img src="https://storage.googleapis.com/support-forums-api/attachment/thread-9014924-11470506657998028469.JPG" alt="" className="c-guardian-details__ubicacion-img" />
           </div>
-            {/* //////////////////////////////////////////// */}
-            
-
-            
-            {/* //////////////////////////////////////////// */}
-
+    
             <div>
               <p className="b-subtitle">Normas de Marta</p>
               <p className="c-guardian-details__rules" >Cómo debe ser tu maleta</p>
               <p className="c-guardian-details__rules" >Tipo de cancelación de reserva</p>
               <p className="c-guardian-details__rules" >Contactar con tu guardián</p>
               <p className="c-guardian-details__rules" >Denunciar anuncio</p>
-
-                          {/* //////////////////////////////////////////// */}
 
             <div className="c-guardian-details__reservar">
                 <div className="c-guardian-details__total">
