@@ -21,7 +21,7 @@ export function SearchPage() {
     <div>
       <SearchComponent/>
       <div className="car" >
-      <CarrouselComponent espacios={espacios}/>
+        <CarrouselComponent espacios={espacios}/>
       </div>
       <NavComponent/>
     </div>

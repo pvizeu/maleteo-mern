@@ -25,6 +25,7 @@ import {environment} from "../../../environments/environment";
 //  Se necesita este componente para pasarle la ubicacion como props al google-reactt-map
 const Marker = ({children}) => children;
 
+
 export function SearchComponent() {
 
 
@@ -32,19 +33,20 @@ export function SearchComponent() {
   function useQuery() {
     return new URLSearchParams(useLocation().search);
   }
+  let query= useQuery();
 
-   let query = useQuery();
+
    //parametros de la url recogidos con query buscando la clave
-   let lat = query.get("lat");
-   let lng = query.get("lng");
+   let latitude = query.get("latitude");
+   let longitude = query.get("longitude");
 
    //convirtiendolos en float
-   lat = parseFloat(lat)
-   lng = parseFloat(lng)
+   latitude = parseFloat(latitude)
+   longitude = parseFloat(longitude)
 
    const center = {
-    lat: (lat ? lat : 40.4),
-    lng: (lng ? lng : -3.7)
+    lat: (latitude ? latitude : 40.4),
+    lng: (longitude ? longitude : -3.7)
   };
   const resolution = 16; 
    //haciendolos el centro del mapa
@@ -59,6 +61,10 @@ export function SearchComponent() {
   // y se setea bounds como null porque aun no sabemos la zona a buscar
   const [ zoom, setZoom ] = useState(10);
   const [bounds, setBounds] = useState(null);
+  const [localization, setLocalization] = useState(query.get("localization") ? query.get("localization") : "");
+  const [deliver, setDeliver] = useState(query.get("deliver") ? query.get("deliver") : "");
+  const [removal, setRemoval] = useState(query.get("removal") ? query.get("removal") : "");
+  const [pieces, setPieces] = useState(query.get("pieces") ? query.get("pieces") : "")
   // Se tiene que utilizar useRef porque este valor no puede cambiar al renderizar el componente, esta es la llamada a google Maps sin utilizar la libreria para agregar funcionalidad a los grupos
   const mapRef = useRef();
 
@@ -196,77 +202,80 @@ export function SearchComponent() {
         </div>
         </>
   );
-}
 
-// funcion para buscar una ubicacion 
-function Search({ panTo }) {
+  // funcion para buscar una ubicacion
+  function Search({ panTo }) {
 
-  let latitude;
-  let longitude;
+    let latitude;
+    let longitude;
 
-  const {
-    value,
-    suggestions: { status, data },
-    setValue,
-    clearSuggestions,
-  } = usePlacesAutocomplete({
-  // Sugerecias cercanas a este punto
-  // radius define el tamaño de ese punto    
-    requestOptions: {
-      location: { lat: () => 40.432, lng: () => -3.3832 },
-      radius: 100 * 1000,
-    },
-  });
-  // setea como value el valor de el input
-  const handleInput = (e) => {
-    setValue(e.target.value);
-  };
-// Set el address con el valor seleccionado
-//devuelve la sugerencia seleccionada
-  const handleSelect = async (address) => {
-    setValue(address, false);
-    clearSuggestions();
-// funcion para convertir la direccion pasada a coordenadas
-    try {
-      const results = await getGeocode({ address });
-         //getGeoCode
-    //devuelve los limites de la zona seleccionada
-      const { lat, lng } = await getLatLng(results[0]);
-      latitude = lat;
-      longitude = lng;
-         //getLatLng
-    //devuelve el centro de la zona seleccionada anteriormente
-      panTo({ lat, lng });
-    } catch (error) {
-      console.log("Error: ", error);
-    }
-    console.log(latitude);
-    console.log(longitude)
-    window.location.replace(`/search/?lat=${latitude}&lng=${longitude}`)
-  };
-  return (
-    //input donde buscas la ubicacion
-    <div>
-      <Combobox onSelect={handleSelect}
-      className="search-container">
-        <ComboboxInput
-              //Formato establecido por la libreria
-          value={value}
-          onChange={handleInput}
-          placeholder="¿Donde te encuentras?"
-          className="search"
-        />
-        {/* ComboboxPopover es la caja que almacena las sugerencias */}
-        <ComboboxPopover>
-          <ComboboxList>
-            {/* si el status esta ok hace el map para mostrar la lista de sugerencias */}
-            {status === "OK" &&
+    const {
+      value,
+      suggestions: { status, data },
+      setValue,
+      clearSuggestions,
+    } = usePlacesAutocomplete({
+      // Sugerecias cercanas a este punto
+      // radius define el tamaño de ese punto
+      requestOptions: {
+        location: { lat: () => 40.432, lng: () => -3.3832 },
+        radius: 100 * 1000,
+      },
+    });
+    // setea como value el valor de el input
+    const handleInput = (e) => {
+      setValue(e.target.value);
+    };
+    // Set el address con el valor seleccionado
+    //devuelve la sugerencia seleccionada
+    const handleSelect = async (address) => {
+      setValue(address, false);
+      clearSuggestions();
+      // funcion para convertir la direccion pasada a coordenadas
+      try {
+        const results = await getGeocode({ address });
+        //getGeoCode
+        //devuelve los limites de la zona seleccionada
+        const { lat, lng } = await getLatLng(results[0]);
+        latitude = lat;
+        longitude = lng;
+        setLocalization(address)
+        //getLatLng
+        //devuelve el centro de la zona seleccionada anteriormente
+        panTo({ lat, lng });
+      } catch (error) {
+        console.log("Error: ", error);
+      }
+
+      window.location.replace(`/search/?latitude=${latitude ? latitude : ""}&longitude=${longitude ? longitude : ""}&localization=${localization ? localization : ""}&deliver=${deliver ? deliver : ""}&removal=${removal ? removal : ""}&pieces=${pieces !== "" ? pieces : ""}`)
+    };
+    return (
+      //input donde buscas la ubicacion
+      <div>
+        <Combobox onSelect={handleSelect}
+                  className="search-container">
+          <ComboboxInput
+            //Formato establecido por la libreria
+            value={value}
+            onChange={handleInput}
+            placeholder="¿Donde te encuentras?"
+            className="search"
+          />
+          {/* ComboboxPopover es la caja que almacena las sugerencias */}
+          <ComboboxPopover>
+            <ComboboxList>
+              {/* si el status esta ok hace el map para mostrar la lista de sugerencias */}
+              {status === "OK" &&
               data.map(({ id, description }) => (
                 <ComboboxOption key={id} value={description} />
               ))}
-          </ComboboxList>
-        </ComboboxPopover>
-      </Combobox>
-    </div>
-  );
+            </ComboboxList>
+          </ComboboxPopover>
+        </Combobox>
+      </div>
+    );
+  }
+
+
 }
+

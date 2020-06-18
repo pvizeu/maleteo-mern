@@ -22,20 +22,23 @@ export function HomePage() {
   }
   let query = useQuery();
 
-  const [lat, setLat] = useState([]);
-  const [lng, setLng] = useState([]);
-  const [address, setAddress] = useState([]);
+  const [latitude, setLatitude] = useState(query.get("latitude") ? query.get("latitude") : []);
+  const [longitude, setLongitude] = useState(query.get("longitude") ? query.get("longitude") : []);
+  const [localization, setLocalization] = useState(query.get("localization") ? query.get("localization") : []);
   const deliver = query.get("deliver");
   const removal = query.get("removal");
   const pieces = query.get("pieces");
 
+
+  // console.log(window.location.href);
+
 //mostrando los datos de la query
-    console.log(deliver);
-    console.log(removal);
-    console.log(pieces);
-    console.log(lat);
-    console.log(lng);
-    console.log(address);
+//     console.log(deliver);
+//     console.log(removal);
+//     console.log(pieces);
+//     console.log(latitude);
+//     console.log(longitude);
+//     console.log(localization);
 
     useEffect(()=>{
         axios.get(environment.url +'experiences').then(res=>{
@@ -49,24 +52,24 @@ export function HomePage() {
     },[])
 
     const updateForm = (datos) => {
-      setLat(datos.latLng.lat);
-      setLng(datos.latLng.lng);
-      setAddress(datos.address);
+      setLatitude(datos.latLng.lat);
+      setLongitude(datos.latLng.lng);
+      setLocalization(datos.localization);
     }
     return(
         <div className="home">
           <p className="b-title">Encuentra tu guardian</p>
           <form>
-            <InputComponent fnUpdateForm={(datos)=>{updateForm(datos)}}/>
+            <InputComponent localization={localization} fnUpdateForm={(datos)=>{updateForm(datos)}}/>
             <div className="c-form">
               <div className="c-prueba">
-                <Link to={"/calendar"}>
+                <Link to={`/calendar/?latitude=${latitude !== "" ? latitude : ""}&longitude=${longitude !== "" ? longitude : ""}&localization=${localization !== "" ? localization : ""}&deliver=${deliver !== "" ? deliver : ""}&removal=${removal !== "" ? removal : ""}&pieces=${pieces !== "" ? pieces : ""}`}>
                   <img src={calendario} className="img" alt="/"/>
                 </Link>
                 <input placeholder="Deposito" value={deliver ? deliver : ""} className="retirada"/>
               </div>
               <div className="c-prueba2">
-                <Link to={"/calendar"}>
+                <Link to={`/calendar/?latitude=${latitude !== "" ? latitude : ""}&longitude=${longitude !== "" ? longitude : ""}&localization=${localization !== "" ? localization : ""}&deliver=${deliver !== "" ? deliver : ""}&removal=${removal !== "" ? removal : ""}&pieces=${pieces !== "" ? pieces : ""}`}>
                   <img src={calendario} className="img" alt="/"/>
                 </Link>
                 <input placeholder="Retirada" value={removal ? removal : ""} className="retirada"/>
@@ -74,13 +77,13 @@ export function HomePage() {
             </div>
             <div className="c-form2">
               <div className="c-prueba">
-                <Link to={"/calendar"}>
+                <Link to={`/calendar/?latitude=${latitude !== "" ? latitude : ""}&longitude=${longitude !== "" ? longitude : ""}&localization=${localization !== "" ? localization : ""}&deliver=${deliver !== "" ? deliver : ""}&removal=${removal !== "" ? removal : ""}&pieces=${pieces !== "" ? pieces : ""}`}>
                   <img src={maleta} className="img2" alt="/"/>
                 </Link>
                 <input placeholder="Nº de piezas" value={pieces ? pieces : ""} className="retirada"/>
               </div>
               <div className="c-prueba3">
-                <Link to={`/search/?lat=${lat}&lng=${lng}&address=${address}&deliver=${deliver}&removal=${removal}`}>
+                <Link to={`/search/?latitude=${latitude !== "" ? latitude : ""}&longitude=${longitude !== "" ? longitude : ""}&localization=${localization !== "" ? localization : ""}&deliver=${deliver !== "" ? deliver : ""}&removal=${removal !== "" ? removal : ""}&pieces=${pieces !== "" ? pieces : ""}`}>
                   <button className="b-btn">Continuar</button>
                 </Link>
               </div>

@@ -1,17 +1,9 @@
 import React from 'react';
-import axios from 'axios';
 import { SliderComponent } from '../../shared/components/SliderComponent/SliderComponent';
-import { useEffect } from 'react';
-import {environment} from "../../environments/environment";
+import { GuardianDetailsComponent } from '../../shared/components/GuardianDetailsComponent/GuardianDetailsComponent';
 
 
 export function SpaceDetailsPage() {
-
-    useEffect( ()=>{
-
-        axios.get( environment.url + "/api/spaces/"  )
-
-    }, [] )
 
   const space = {
     alias: "Marta1",
@@ -35,6 +27,7 @@ export function SpaceDetailsPage() {
     return(
         <div>
             <SliderComponent info={space} />
+            <GuardianDetailsComponent info={space}/>
         </div>
     )
 }

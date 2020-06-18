@@ -12,16 +12,16 @@ export function CarrouselComponent(props) {
     
        let query = useQuery();
        //parametros de la url recogidos con query buscando la clave
-       let lat = query.get("lat");
-       let lng = query.get("lng");
+       let latitude = query.get("latitude");
+       let longitude = query.get("longitude");
     
        //convirtiendolos en float
-       lat = parseFloat(lat)
-       lng = parseFloat(lng)
+       latitude = parseFloat(latitude)
+       longitude = parseFloat(longitude)
     
        const center = {
-        latitude: (lat),
-        longitude: (lng)
+        latitude: (latitude),
+        longitude: (longitude)
       };
 
       

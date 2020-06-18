@@ -10,13 +10,13 @@ import PlacesAutocomplete, {
 
 export function InputComponent(props) {
 
-  const [address, setAddress] = useState("");
+  const [localization, setLocalization] = useState(props.localization);
   const [coordinates, setCoordinates] = useState({
     lat: null,
     lng: null
   });
 
-  console.log(coordinates);
+  // console.log(coordinates);
   
 
   // Seteando variables de el state
@@ -28,12 +28,12 @@ export function InputComponent(props) {
     //getLatLng
     //devuelve el centro de la zona seleccionada anteriormente
     const latLng = await getLatLng(results[0]);
-    setAddress(value);
+    setLocalization(value);
     setCoordinates(latLng);
 
     props.fnUpdateForm({
       latLng: latLng,
-      address: value
+      localization: value
     })
   };
   return (
@@ -41,14 +41,17 @@ export function InputComponent(props) {
 
       <PlacesAutocomplete
       //Formato establecido por la libreria
-        value={address}
-        onChange={setAddress}
+        value={localization}
+        onChange={setLocalization}
         onSelect={handleSelect}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div className='container'>
               <img className="img3" src={lupa} alt="/"/>
-              <input  className="where" {...getInputProps({ placeholder: "¿Donde te encuentras? Madrid, Barcelona..." })}/>
+              <input  className="where" {...getInputProps({ placeholder: (localization != "" ? localization : "¿Donde" +
+                  " te" +
+                  " encuentras? Madrid," +
+                  " Barcelona...") })}/>
 
             <div className="suggestion-box">
               {/* Si loading es true devuelve ..loading */}
