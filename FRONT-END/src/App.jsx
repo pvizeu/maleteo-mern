@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.scss';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import { LogoPage } from './pages/LogoPage/LogoPage';
 import { WelcomePage } from './pages/WelcomePage/WelcomePage';
 import { GetStartedPage } from './pages/GetStartedPage/GetStartedPage';
@@ -15,11 +15,14 @@ import {LoginPage} from "./pages/LoginPage/LoginPage";
 import {RegisterPage} from "./pages/RegisterPage/RegisterPage";
 import {TimePage} from "./pages/TimePage/TimePage";
 import {SpaceDetailsPage} from "./pages/SpaceDetailsPage/SpaceDetailsPage";
+import {LoginContext} from "./shared/contexts/loginContext";
 
 function App() {
+
+  const [login, setLogin] = useState(false);
   return (
     <Router>
-
+      <LoginContext.Provider value={[login,setLogin]}>
       <Switch>
       <Route path="/calendar">
           <CalendarPage/>
@@ -45,9 +48,14 @@ function App() {
         <Route path="/register">
           <RegisterPage/>
         </Route>
-        <Route path="/details">
-          <ReserveDetailsPage/>
-        </Route>
+        <Route exact path="/details" render={() => (
+            login ? (
+                <ReserveDetailsPage/>
+            ) : (
+                <LoginPage/>
+            )
+        )}/>
+
         <Route path="/complete">
           <ReserveCompletePage/>
         </Route>
@@ -64,6 +72,7 @@ function App() {
           <LogoPage/>
         </Route>
       </Switch>
+      </LoginContext.Provider>
     </Router>
   );
 }
