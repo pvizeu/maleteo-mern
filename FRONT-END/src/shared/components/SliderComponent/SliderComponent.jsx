@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import './SpaceDetails.scss'
+import './SliderDetails.scss'
 import {Link} from "react-router-dom";
 
 
@@ -18,7 +18,7 @@ export function SliderComponent (props) {
 
     return(
       <div className="c-space-details">
-      <div className="arrow-icon">
+      <div className="arrow-back">
       <Link to="/" className="arrow-icon__link"><i className="fas fa-chevron-left"></i></Link>  
       </div>
       <div className="c-space-details__carousel">
