@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 import { Calendar } from 'primereact/calendar'
 import 'primeicons/primeicons.css';
 import './CalendarComponent.scss'
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import moment from "moment";
 
 export function CalendarComponent() {
-
+    // Funcion necesaria para hacer uso de queryParams
+    function useQuery() {
+      return new URLSearchParams(useLocation().search);
+    }
+    let query = useQuery();
+    let localization = query.get("localization");
+    let latitude = query.get("latitude");
+    let longitude = query.get("longitude");
     let today = new Date();
 
     let es = {
@@ -35,7 +42,7 @@ export function CalendarComponent() {
         <Calendar required={true} locale={es} minDate={date1} value={date2} onChange={(e) => setDate2(e.value)} inline={true} showWeek={false} />
             </div>
         { date2 >= date1 ? <div className="btn-container">
-          <Link to={`/time/?deliver=${moment(date1).format("yyyy-MM-DD")}&removal=${moment(date2).format("yyyy-MM-DD")}`}>
+          <Link to={`/time/?latitude=${latitude}&longitude=${longitude}&localization=${localization}&deliver=${moment(date1).format("yyyy-MM-DD")}&removal=${moment(date2).format("yyyy-MM-DD")}`}>
             <button className="b-btn">Continuar</button>
           </Link> </div> : null }
 

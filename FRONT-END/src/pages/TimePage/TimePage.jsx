@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import './TimePage.scss';
 import {NavComponent} from "../../shared/components/NavComponent/NavComponent";
 import {ArrowBackComponent} from "../../shared/components/ArrowBackComponent/ArrowBackComponent";
@@ -24,8 +24,10 @@ export function TimePage(){
 
   //parametros de la url recogidos con query buscando la clave
   let deliver = query.get("deliver");
-
   let removal = query.get("removal");
+  let localization = query.get("localization");
+  let latitude = query.get("latitude");
+  let longitude = query.get("longitude");
 
   for (let i = 0 ; i < 24 ; i++){
     time.push(((hour + i) < 10 ? "0" + (hour + i) : (hour + i)) + ":0" + hour);
@@ -36,13 +38,9 @@ export function TimePage(){
     num.push(i);
   }
 
-
-  useEffect(() => {  }, []);
-
-
   return(
     <div>
-      <ArrowBackComponent />
+      <ArrowBackComponent url={`/calendar?latitude=${latitude ? latitude : ""}&longitude=${longitude ? longitude : ""}&localization=${localization ? localization : ""}&deliver=${deliver ? deliver : ""}&removal=${removal ? removal : ""}`}/>
       <div className="time">
         <div>
           <span className="b-title time__element" >Deposito</span>
@@ -70,7 +68,7 @@ export function TimePage(){
           {num.map((item, index) => <option key={index} value={item}>{item}</option>)}
         </select>
       </div>
-      <ArrowForwardComponent url={`/home/?deliver=${deliver}T${deposito}&removal=${removal}T${retirada}&pieces=${piezas}`}/>
+      <ArrowForwardComponent url={`/home/?latitude=${latitude !== "" ? latitude : ""}&longitude=${longitude !== "" ? longitude : ""}&localization=${localization !== "" ? localization : ""}&deliver=${deliver !== "" ? deliver : ""}&removal=${removal !== "" ? removal : ""}&pieces=${piezas !== "" ? piezas : ""}`}/>
       <NavComponent />
     </div>
   );
