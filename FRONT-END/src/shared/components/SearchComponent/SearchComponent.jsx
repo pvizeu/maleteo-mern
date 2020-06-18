@@ -35,16 +35,16 @@ export function SearchComponent() {
 
    let query = useQuery();
    //parametros de la url recogidos con query buscando la clave
-   let lat = query.get("lat");
-   let lng = query.get("lng");
+   let latitude = query.get("latitude");
+   let longitude = query.get("longitude");
 
    //convirtiendolos en float
-   lat = parseFloat(lat)
-   lng = parseFloat(lng)
+   latitude = parseFloat(latitude)
+   longitude = parseFloat(longitude)
 
    const center = {
-    lat: (lat ? lat : 40.4),
-    lng: (lng ? lng : -3.7)
+    lat: (latitude ? latitude : 40.4),
+    lng: (longitude ? longitude : -3.7)
   };
   const resolution = 16; 
    //haciendolos el centro del mapa
