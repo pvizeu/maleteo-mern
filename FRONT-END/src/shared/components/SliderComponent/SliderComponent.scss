@@ -1,0 +1,22 @@
+.c-space-details{
+    &__img{
+        height: 250px;
+    }
+}
+
+.arrow-back{
+    padding-left: 8%;
+    font-size: 32px;
+    text-decoration: none;
+    position: absolute;
+    z-index: 2;
+    margin-top: 20px;
+    
+    &__link{
+      color:rgba($color: #000000, $alpha: 0.4);
+    }
+    &__link:hover{
+      color: #F78712;
+    }
+  }
+  

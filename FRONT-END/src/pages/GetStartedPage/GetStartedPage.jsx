@@ -17,7 +17,7 @@ export function GetStartedPage () {
                     <p>Dispondrás de un precio fijo estés donde estés, sin importar el tamaño o el peso.</p>
                 </div>
                 <div className="p-welcome__btn">
-                    <a href="/"><button className="b-btn">Empezar Ya</button></a>
+                    <Link to="/home"><button className="b-btn">Empezar Ya</button></Link>
                     <Link to="/prices"><p className="p-get-started__link">Consulta precios</p></Link>
                 </div>
             </div>
