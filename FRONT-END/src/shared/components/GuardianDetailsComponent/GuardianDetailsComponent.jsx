@@ -9,8 +9,7 @@ export function GuardianDetailsComponent (props) {
     return(
         <div className="c-guardian-details">
             <div className="c-guardian-details__container" >
-        <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/1200px-Crystal_Clear_kdm_user_female.svg.png" alt="/" className
-        ="user-photo" className="c-guardian-details__img"/>
+        <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Crystal_Clear_kdm_user_female.svg/1200px-Crystal_Clear_kdm_user_female.svg.png" alt="/" className="user-photo c-guardian-details__img"/>
           <p className="b-title" >{props.info.title}</p>
           <p className="b-text" >Tetuan, Madrid</p>
           <p className="b-text" > Guardian: {props.info.alias}</p>

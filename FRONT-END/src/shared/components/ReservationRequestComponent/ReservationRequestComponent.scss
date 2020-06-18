@@ -1,0 +1,41 @@
+.request{
+  line-height: 0.2;
+  border-bottom: 1px solid lightgrey;
+  width: 90%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5%;
+  //margin-top: 40px;
+  &__img{
+    width: 80px;
+    border-radius: 25%;
+  }
+  &__title{
+    font-size: 20px;
+    margin: 3px;
+  }
+  &__text{
+    font-size: 12px;
+    width: 180px;
+  }
+  &__btn{
+    width: 100px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 10px;
+    text-align: center;
+  }
+  &__link{
+    color: #008FBF;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+  }
+  &__big-title{
+    padding-left: 40px;
+    font-size: 30px;
+  }
+}
