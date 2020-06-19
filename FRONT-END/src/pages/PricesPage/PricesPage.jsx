@@ -6,7 +6,7 @@ import {ArrowBackComponent} from "../../shared/components/ArrowBackComponent/Arr
 export function PricesPage() {
 
     return(
-      <>
+      <div>
         <div className="p-prices">
             <ArrowBackComponent url={"/home"}/>
             <div className="p-prices__container">
@@ -31,6 +31,6 @@ export function PricesPage() {
             </div>
         </div>
         <NavComponent/>
-      </>
+      </div>
     )
 }

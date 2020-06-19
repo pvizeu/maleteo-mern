@@ -23,7 +23,7 @@ export function SearchPage() {
     deliver: (query.get("deliver") ? query.get("deliver") : ""),
     removal: (query.get("removal") ? query.get("removal") : ""),
     pieces: (query.get("pieces") ? query.get("pieces") : ""),
-    url: "home",
+    url: "search",
     useremail: (query.get("useremail") ? query.get("useremail") : ""),
     guardianemail: (query.get("guardianemail") ? query.get("guardianemail") : ""),
     title: (query.get("title") ? query.get("title") : ""),

@@ -5,15 +5,7 @@ import {Link, useLocation} from "react-router-dom";
 import loading from '../../img/loading.gif'
 
 export function CarrouselComponent(props) {
-    
-    // function useQuery() {
-    //     return new URLSearchParams(useLocation().search);
-    //   }
-    //
-    //    let query = useQuery();
-       //parametros de la url recogidos con query buscando la clave
-       // let latitude = query.get("latitude");
-       // let longitude = query.get("longitude");
+
         let localization = props.navigation.localization;
         let latitude = props.navigation.latitude;
         let longitude = props.navigation.longitude;
@@ -71,11 +63,6 @@ export function CarrouselComponent(props) {
         return 0;
       });
 
-  // onClick={(key)=>{ayuda(key)}}
-  //    const ayuda = (index) => {
-  //      props.fnOnSelect(index);
-  //      console.log(index);
-  //    };
 
     return(
         <div className="c-carrousel">
@@ -85,11 +72,13 @@ export function CarrouselComponent(props) {
             { espacios[1] === undefined ? <img src={loading} alt="/" className="loading" /> : null}
 
                 {orden.map((espacios, key)=>
+
+                  <Link to={`/location?latitude=${latitude ? latitude : ""}&longitude=${longitude ? longitude : ""}&localization=${localization ? localization : ""}&deliver=${deliver ? deliver : ""}&removal=${removal ? removal : ""}&pieces=${pieces !== "" ? pieces : ""}&useremail= ${useremail ? useremail : ""}&url=${url !== "" ? url : ""}&guardianemail=${guardianemail !== "" ? guardianemail : ""}&title=${title !== "" ? title : ""}&spacetitle=${spacetitle !== "" ? spacetitle : ""}&discount=${discount !== "" ? discount : ""}&preciosindiscount=${preciosindiscount !== "" ? preciosindiscount : ""}`}>
             <div key={key} className="c-carrousel__item">
 
-              <Link to={`/location?latitude=${latitude ? latitude : ""}&longitude=${longitude ? longitude : ""}&localization=${localization ? localization : ""}&deliver=${deliver ? deliver : ""}&removal=${removal ? removal : ""}&pieces=${pieces !== "" ? pieces : ""}&useremail= ${useremail ? useremail : ""}&url=${url !== "" ? url : ""}&guardianemail=${guardianemail !== "" ? guardianemail : ""}&title=${title !== "" ? title : ""}&spacetitle=${spacetitle !== "" ? spacetitle : ""}&discount=${discount !== "" ? discount : ""}&preciosindiscount=${preciosindiscount !== "" ? preciosindiscount : ""}`}>
+
                 <img src={espacios[1].photos[0]} alt="/" className="c-carrousel__img"/>
-              </Link>
+
 
                 <div className="c-carrousel__details">
                 <p className="c-carrousel__title">{espacios[1].title}</p>
@@ -99,6 +88,7 @@ export function CarrouselComponent(props) {
                 <p className="c-carrousel__ubicacion">{(espacios[0]/1000).toFixed(1)} km de tu ubicación </p>
                 </div>
             </div>
+                  </Link>
                 )}
                 <div className="c-carrousel__final"></div>
 
