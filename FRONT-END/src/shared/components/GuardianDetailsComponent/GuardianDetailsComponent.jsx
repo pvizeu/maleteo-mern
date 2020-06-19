@@ -21,6 +21,47 @@ export function GuardianDetailsComponent (props) {
   let discount = props.navigation.discount;
   let preciosindiscount = props.navigation.preciosindiscount;
 
+//Formateando deliver
+let splitDeliver = deliver.split("T") 
+let dateDeliver = splitDeliver[0].split("-")
+let hourDeliver = splitDeliver[1].split(":")
+let arrival = new Date(dateDeliver[0],dateDeliver[1],dateDeliver[2],hourDeliver[0],hourDeliver[1]);
+
+
+//Formateando removal
+let splitRemoval = removal.split("T")
+console.log(splitRemoval);
+let dateRemoval = splitRemoval[0]
+dateRemoval = dateRemoval.split("-")
+
+let hourRemoval = splitRemoval[1].split(":")
+
+ let departure = new Date (dateRemoval[0],dateRemoval[1],dateRemoval[2],hourRemoval[0],hourRemoval[1])
+const diffTime = Math.abs(departure - arrival)
+const diffHours = (Math.floor((diffTime/1000/60)<<0)/60);
+ 
+let price;
+
+if( diffHours < 24 ){
+  price = 6;  
+}
+
+if( diffHours / 24 <= 2 && diffHours % 24 !== 0 ){
+  let horaExtra = (diffHours - 24 );
+  price = 6 + ( horaExtra )
+}
+
+if( diffHours / 24 >= 2 && diffHours % 24 !== 0 ){
+  let diasE = Math.floor(diffHours/ 24)
+  let horasE = diffHours - (diasE * 24) 
+  price = (diasE*6) + horasE    
+}
+
+if ( diffHours % 24 === 0 ){
+  let dias = diffHours / 24;
+  price = 6 + ((dias - 1)*4)
+}
+
     return(
         <div className="c-guardian-details">
             <div className="c-guardian-details__container" >
@@ -75,7 +116,7 @@ export function GuardianDetailsComponent (props) {
 
             <div className="c-guardian-details__reservar">
                 <div className="c-guardian-details__total">
-                <p className="c-guardian-details__total-text">Total: ??</p>
+                <p className="c-guardian-details__total-text">Total: {price}</p>
                 <a  href="/" className="c-guardian-details__desgloce">Desglose de precio</a>
                 </div>
                 <div className="c-guardian-details__button">
