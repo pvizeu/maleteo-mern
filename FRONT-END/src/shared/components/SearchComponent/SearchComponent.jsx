@@ -39,6 +39,7 @@ export function SearchComponent() {
    //parametros de la url recogidos con query buscando la clave
    let latitude = query.get("latitude");
    let longitude = query.get("longitude");
+   let useremail = query.get("useremail");
 
    //convirtiendolos en float
    latitude = parseFloat(latitude)
@@ -64,7 +65,7 @@ export function SearchComponent() {
   const [localization, setLocalization] = useState(query.get("localization") ? query.get("localization") : "");
   const [deliver, setDeliver] = useState(query.get("deliver") ? query.get("deliver") : "");
   const [removal, setRemoval] = useState(query.get("removal") ? query.get("removal") : "");
-  const [pieces, setPieces] = useState(query.get("pieces") ? query.get("pieces") : "")
+  const [pieces, setPieces] = useState(query.get("pieces") ? query.get("pieces") : "");
   // Se tiene que utilizar useRef porque este valor no puede cambiar al renderizar el componente, esta es la llamada a google Maps sin utilizar la libreria para agregar funcionalidad a los grupos
   const mapRef = useRef();
 

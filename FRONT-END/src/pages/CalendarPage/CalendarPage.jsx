@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from "react";
 import { CalendarComponent } from '../../shared/components/CalendarComponent/CalendarComponent';
 import { ArrowBackComponent } from '../../shared/components/ArrowBackComponent/ArrowBackComponent';
 import { NavComponent } from '../../shared/components/NavComponent/NavComponent';
@@ -11,17 +11,27 @@ export function CalendarPage() {
         return new URLSearchParams(useLocation().search);
     }
     let query = useQuery();
-    let localization = query.get("localization");
-    let latitude = query.get("latitude");
-    let longitude = query.get("longitude");
-    let deliver = query.get("deliver");
-    let removal = query.get("removal");
-    let pieces = query.get("pieces");
+    const [navigation, setNavigation] = useState({
+        latitude: (query.get("latitude") ? query.get("latitude") : ""),
+        longitude: (query.get("longitude") ? query.get("longitude") : ""),
+        localization: (query.get("localization") ? query.get("localization") : ""),
+        deliver: (query.get("deliver") ? query.get("deliver") : ""),
+        removal: (query.get("removal") ? query.get("removal") : ""),
+        pieces: (query.get("pieces") ? query.get("pieces") : ""),
+        url: "home",
+        useremail: (query.get("useremail") ? query.get("useremail") : ""),
+        guardianemail: (query.get("guardianemail") ? query.get("guardianemail") : ""),
+        title: (query.get("title") ? query.get("title") : ""),
+        spacetitle: (query.get("spacetitle") ? query.get("spacetitle") : ""),
+        discount: (query.get("discount") ? query.get("discount") : ""),
+        preciosindiscount: (query.get("preciosindiscount") ? query.get("preciosindiscount") : "")
+    });
+
     return(
         <div>
-        <ArrowBackComponent url={`/home?latitude=${latitude ? latitude : ""}&longitude=${longitude ? longitude : ""}&localization=${localization ? localization : ""}&deliver=${deliver ? deliver : ""}&removal=${removal ? removal : ""}&pieces=${pieces !== "" ? pieces : ""}`}/>
+        <ArrowBackComponent navigation={navigation}/>
         <CalendarComponent/>
-        <NavComponent/>
+        <NavComponent navigation={navigation}/>
         </div>
     );
 }

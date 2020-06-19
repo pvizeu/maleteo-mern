@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import './LoginComponent.scss'
 
 
-export function LoginComponent () {
+export function LoginComponent (props) {
 
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = data => console.log(data)

@@ -16,8 +16,6 @@ export function InputComponent(props) {
     lng: null
   });
 
-  // console.log(coordinates);
-  
 
   // Seteando variables de el state
   //Aqui cambia la direccion por las coordenadas
@@ -48,7 +46,7 @@ export function InputComponent(props) {
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div className='container'>
               <img className="img3" src={lupa} alt="/"/>
-              <input  className="where" {...getInputProps({ placeholder: (localization != "" ? localization : "¿Donde" +
+              <input  className="where" {...getInputProps({ placeholder: (localization !== "" ? localization : "¿Donde" +
                   " te" +
                   " encuentras? Madrid," +
                   " Barcelona...") })}/>

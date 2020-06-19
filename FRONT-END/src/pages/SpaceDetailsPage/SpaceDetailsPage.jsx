@@ -1,10 +1,34 @@
-import React from 'react';
+import React, {useState} from "react";
 import { SliderComponent } from '../../shared/components/SliderComponent/SliderComponent';
 import { GuardianDetailsComponent } from '../../shared/components/GuardianDetailsComponent/GuardianDetailsComponent';
+import {ArrowBackComponent} from "../../shared/components/ArrowBackComponent/ArrowBackComponent";
+import {useLocation} from "react-router-dom";
 
 
 export function SpaceDetailsPage() {
 
+  // Funcion necesaria para hacer uso de queryParams
+  function useQuery() {
+    return new URLSearchParams(useLocation().search);
+  }
+  let query = useQuery();
+
+  const [navigation, setNavigation] = useState({
+    latitude: (query.get("latitude") ? query.get("latitude") : ""),
+    longitude: (query.get("longitude") ? query.get("longitude") : ""),
+    localization: (query.get("localization") ? query.get("localization") : ""),
+    deliver: (query.get("deliver") ? query.get("deliver") : ""),
+    removal: (query.get("removal") ? query.get("removal") : ""),
+    pieces: (query.get("pieces") ? query.get("pieces") : ""),
+    url: "search",
+    useremail: (query.get("useremail") ? query.get("useremail") : ""),
+    guardianemail: (query.get("guardianemail") ? query.get("guardianemail") : ""),
+    title: (query.get("title") ? query.get("title") : ""),
+    spacetitle: (query.get("spacetitle") ? query.get("spacetitle") : ""),
+    discount: (query.get("discount") ? query.get("discount") : ""),
+    preciosindiscount: (query.get("preciosindiscount") ? query.get("preciosindiscount") : "")
+  });
+  console.log("SpaceDetailsPage #####  /location  #", navigation);
   const space = {
     alias: "Marta1",
     availability: "Abierto 24h",
@@ -26,8 +50,9 @@ export function SpaceDetailsPage() {
   }
     return(
         <div>
+          <ArrowBackComponent navigation={navigation}/>
             <SliderComponent info={space} />
-            <GuardianDetailsComponent info={space}/>
+            <GuardianDetailsComponent info={space} navigation={navigation}/>
         </div>
     )
 }
