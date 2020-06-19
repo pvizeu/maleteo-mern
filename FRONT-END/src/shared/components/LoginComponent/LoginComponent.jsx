@@ -3,11 +3,27 @@ import axios from 'axios';
 import { useForm } from "react-hook-form";
 import './LoginComponent.scss'
 import {environment} from "../../../environments/environment";
-import { useHistory } from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
 import {LoginContext} from "../../contexts/loginContext";
 
 
-export function LoginComponent () {
+export function LoginComponent (props) {
+
+    let localization = props.navigation.localization;
+    let latitude = props.navigation.latitude;
+    let longitude = props.navigation.longitude;
+    let deliver = props.navigation.deliver;
+    let removal = props.navigation.removal;
+    let pieces = props.navigation.pieces;
+    let useremail = props.navigation.useremail;
+    let url = props.navigation.url;
+    let guardianemail = props.navigation.guardianemail;
+    let title = props.navigation.title;
+    let spacetitle = props.navigation.spacetitle;
+    let discount = props.navigation.discount;
+    let preciosindiscount = props.navigation.preciosindiscount;
+
+
     const [login, setLogin] = useContext(LoginContext);
     const [token,setToken] = useState("");
     let history = useHistory();
@@ -25,7 +41,7 @@ export function LoginComponent () {
         })
 
         function handleClick() {
-            history.push("/home");
+            history.push(`/${url}/?latitude=${latitude ? latitude : ""}&longitude=${longitude ? longitude : ""}&localization=${localization ? localization : ""}&deliver=${deliver ? deliver : ""}&removal=${removal ? removal : ""}&pieces=${pieces !== "" ? pieces : ""}&useremail= ${useremail ? useremail : ""}&url=${url !== "" ? url : ""}&guardianemail=${guardianemail !== "" ? guardianemail : ""}&title=${title !== "" ? title : ""}&spacetitle=${spacetitle !== "" ? spacetitle : ""}&discount=${discount !== "" ? discount : ""}&preciosindiscount=${preciosindiscount !== "" ? preciosindiscount : ""}`);
         }
 
     return(

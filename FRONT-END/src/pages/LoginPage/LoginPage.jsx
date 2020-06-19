@@ -13,16 +13,6 @@ export function LoginPage() {
   }
   let query = useQuery();
 
-  //parametros de la url recogidos con query buscando la clave
-  // let deliver = query.get("deliver");
-  // let removal = query.get("removal");
-  // let localization = query.get("localization");
-  // let latitude = query.get("latitude");
-  // let longitude = query.get("longitude");
-  // let pieces = query.get("pieces");
-  // let url = query.get("url");
-  // let useremail = query.get("useremail");
-
   const [navigation, setNavigation] = useState({
     latitude: (query.get("latitude") ? query.get("latitude") : ""),
     longitude: (query.get("longitude") ? query.get("longitude") : ""),
@@ -31,7 +21,12 @@ export function LoginPage() {
     removal: (query.get("removal") ? query.get("removal") : ""),
     pieces: (query.get("pieces") ? query.get("pieces") : ""),
     url: "home",
-    useremail: (query.get("useremail") ? query.get("useremail") : "")
+    useremail: (query.get("useremail") ? query.get("useremail") : ""),
+    guardianemail: (query.get("guardianemail") ? query.get("guardianemail") : ""),
+    title: (query.get("title") ? query.get("title") : ""),
+    spacetitle: (query.get("spacetitle") ? query.get("spacetitle") : ""),
+    discount: (query.get("discount") ? query.get("discount") : ""),
+    preciosindiscount: (query.get("preciosindiscount") ? query.get("preciosindiscount") : "")
   });
 
 
