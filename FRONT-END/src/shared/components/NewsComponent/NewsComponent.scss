@@ -2,13 +2,16 @@
 
   margin-left: 25px;
 
-&__overflow{
-  height: 155px;
-  width: 100%;
-  overflow-x: scroll;
-  display: flex;
-  flex-direction: row;
-}
+  &__title{
+    margin-top: 40px;
+  }
+  &__overflow{
+    height: 155px;
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+  }
 
   &__item{
     min-width: 220px;
