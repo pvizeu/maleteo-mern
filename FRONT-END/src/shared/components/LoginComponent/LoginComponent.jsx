@@ -1,12 +1,32 @@
-import React from 'react';
+import React, {useContext, useEffect, useState} from 'react';
+import axios from 'axios';
 import { useForm } from "react-hook-form";
 import './LoginComponent.scss'
+import {environment} from "../../../environments/environment";
+import { useHistory } from "react-router-dom";
+import {LoginContext} from "../../contexts/loginContext";
 
 
 export function LoginComponent () {
+    const [login, setLogin] = useContext(LoginContext);
+    const [token,setToken] = useState("");
+    let history = useHistory();
 
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = data => console.log(data)
+    const onSubmit = data => axios.get(environment.url+"token?email="+ data.email+"&password="+data.password)
+        .then(res=>{ console.log(res.data)
+            if (res.data.status==401){
+                alert('Datos incorrectos')
+            }else {
+                setToken(res.data.token)
+                setLogin(true)
+                handleClick()
+            }
+        })
+
+        function handleClick() {
+            history.push("/home");
+        }
 
     return(
         <div className="c-login">

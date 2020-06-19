@@ -22,23 +22,30 @@ export function HomePage() {
   }
   let query = useQuery();
 
-  const [latitude, setLatitude] = useState(query.get("latitude") ? query.get("latitude") : []);
-  const [longitude, setLongitude] = useState(query.get("longitude") ? query.get("longitude") : []);
-  const [localization, setLocalization] = useState(query.get("localization") ? query.get("localization") : []);
-  const deliver = query.get("deliver");
-  const removal = query.get("removal");
-  const pieces = query.get("pieces");
+  const [latitude, setLatitude] = useState(query.get("latitude") ? query.get("latitude") : "");
+  const [longitude, setLongitude] = useState(query.get("longitude") ? query.get("longitude") : "");
+  const [localization, setLocalization] = useState(query.get("localization") ? query.get("localization") : "");
 
 
-  // console.log(window.location.href);
+  const [deliver, setDeliver] = useState(query.get("deliver") ? query.get("deliver") : "");
+  const [removal, setRemoval] = useState(query.get("removal") ? query.get("removal") : "");
+  const [pieces, setPieces] = useState(query.get("pieces") ? query.get("pieces") : "");
 
-//mostrando los datos de la query
-//     console.log(deliver);
-//     console.log(removal);
-//     console.log(pieces);
-//     console.log(latitude);
-//     console.log(longitude);
-//     console.log(localization);
+  const [navigation, setNavigation] = useState({
+    latitude: (query.get("latitude") ? query.get("latitude") : ""),
+    longitude: (query.get("longitude") ? query.get("longitude") : ""),
+    localization: (query.get("localization") ? query.get("localization") : ""),
+    deliver: (query.get("deliver") ? query.get("deliver") : ""),
+    removal: (query.get("removal") ? query.get("removal") : ""),
+    pieces: (query.get("pieces") ? query.get("pieces") : ""),
+    url: "getstarted",
+    useremail: (query.get("useremail") ? query.get("useremail") : ""),
+    guardianemail: (query.get("guardianemail") ? query.get("guardianemail") : ""),
+    title: (query.get("title") ? query.get("title") : ""),
+    spacetitle: (query.get("spacetitle") ? query.get("spacetitle") : ""),
+    discount: (query.get("discount") ? query.get("discount") : ""),
+    preciosindiscount: (query.get("preciosindiscount") ? query.get("preciosindiscount") : "")
+  });
 
     useEffect(()=>{
         axios.get(environment.url +'experiences').then(res=>{
@@ -55,6 +62,7 @@ export function HomePage() {
       setLatitude(datos.latLng.lat);
       setLongitude(datos.latLng.lng);
       setLocalization(datos.localization);
+
     }
     return(
         <div className="home">
@@ -92,7 +100,7 @@ export function HomePage() {
           <NewsComponent blogs={blogs}/> 
           <ExperienceComponent exp={experiences}/>
           <button className="b-btn home__button">Mostrar más</button>
-          <NavComponent/>
+          <NavComponent navigation={navigation}/>
         </div>
     );
 }

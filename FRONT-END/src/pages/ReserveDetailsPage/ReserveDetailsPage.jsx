@@ -1,13 +1,38 @@
-import React from 'react';
+import React, {useState} from "react";
 import './ReserveDetailsPage.scss';
 import {ArrowBackComponent} from "../../shared/components/ArrowBackComponent/ArrowBackComponent";
 import {NavComponent} from "../../shared/components/NavComponent/NavComponent";
+import {useLocation} from "react-router-dom";
 
 export function ReserveDetailsPage() {
 
+  // Funcion necesaria para hacer uso de queryParams
+  function useQuery() {
+    return new URLSearchParams(useLocation().search);
+  }
+  let query = useQuery();
+
+  const [navigation, setNavigation] = useState({
+    latitude: (query.get("latitude") ? query.get("latitude") : ""),
+    longitude: (query.get("longitude") ? query.get("longitude") : ""),
+    localization: (query.get("localization") ? query.get("localization") : ""),
+    deliver: (query.get("deliver") ? query.get("deliver") : ""),
+    removal: (query.get("removal") ? query.get("removal") : ""),
+    pieces: (query.get("pieces") ? query.get("pieces") : ""),
+    url: "location",
+    useremail: (query.get("useremail") ? query.get("useremail") : ""),
+    guardianemail: (query.get("guardianemail") ? query.get("guardianemail") : ""),
+    title: (query.get("title") ? query.get("title") : ""),
+    spacetitle: (query.get("spacetitle") ? query.get("spacetitle") : ""),
+    discount: (query.get("discount") ? query.get("discount") : ""),
+    preciosindiscount: (query.get("preciosindiscount") ? query.get("preciosindiscount") : "")
+  });
+
+  console.log("ReserveDetailsPage #### /details  #", navigation);
+
   return (
     <div className="details">
-      <ArrowBackComponent />
+      <ArrowBackComponent navigation={navigation}/>
       <h2 className="b-title details__title">Detalles de tu reserva</h2>
       <div className="details__first">
         <table >
@@ -40,7 +65,7 @@ export function ReserveDetailsPage() {
         </div>
       </div>
       <button className="b-btn details__button">Reservar</button>
-      <NavComponent/>
+      <NavComponent navigation={navigation}/>
     </div>
   );
 }
