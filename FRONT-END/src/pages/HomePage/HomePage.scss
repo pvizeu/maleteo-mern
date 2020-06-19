@@ -1,4 +1,7 @@
 .home{
+  &__title{
+    margin: 40px 0 10px 20px;
+  }
   &__button{
     font-weight: bold;
     padding: 0pt 53pt;
@@ -34,6 +37,7 @@
 .c-form{
   text-align: center;
   align-content: center;
+  margin-bottom: 40px;
 }
 .retirada{
   width: 55%;

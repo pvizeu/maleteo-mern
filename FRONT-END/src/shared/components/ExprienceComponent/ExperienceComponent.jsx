@@ -7,7 +7,7 @@ export function ExperienceComponent(props) {
 
     return (
         <div className="c-experience">
-            <h4 className="title-primary">Experiencias</h4>
+            <p className="title-primary b-title">Experiencias</p>
             <div className="c-experience__container">
                 {
                     exp.map( (exp, key) =>
