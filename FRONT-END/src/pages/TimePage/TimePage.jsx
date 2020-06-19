@@ -51,11 +51,11 @@ export function TimePage(){
   let navigationTime = (a,b) => {
     let aux = navigation;
     if (a === 1){
-      aux.deliver = navigation.deliver.substring(0,9).concat("T", b);
+      aux.deliver = navigation.deliver.substring(0,10).concat("T", b);
       setNavigation(aux);
     }
     if (a === 2){
-      aux.removal = navigation.removal.substring(0,9).concat("T", b);
+      aux.removal = navigation.removal.substring(0,10).concat("T", b);
       setNavigation(aux);
     }
     if (a === 3){
