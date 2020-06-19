@@ -50,8 +50,7 @@ export function SpaceDetailsPage() {
   }
     return(
         <div>
-          <ArrowBackComponent navigation={navigation}/>
-            <SliderComponent info={space} />
+            <SliderComponent navigation={navigation} info={space} />
             <GuardianDetailsComponent info={space} navigation={navigation}/>
         </div>
     )
