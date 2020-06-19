@@ -20,7 +20,7 @@ export function LoginPage() {
     deliver: (query.get("deliver") ? query.get("deliver") : ""),
     removal: (query.get("removal") ? query.get("removal") : ""),
     pieces: (query.get("pieces") ? query.get("pieces") : ""),
-    url: "home",
+    url: (query.get("url") === "details" ? "details" : "home"),
     useremail: (query.get("useremail") ? query.get("useremail") : ""),
     guardianemail: (query.get("guardianemail") ? query.get("guardianemail") : ""),
     title: (query.get("title") ? query.get("title") : ""),

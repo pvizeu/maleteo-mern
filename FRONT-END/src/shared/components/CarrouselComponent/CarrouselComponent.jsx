@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import './CarrouselComponent.scss'
 import { getDistance } from 'geolib';
-import {Link, useLocation} from "react-router-dom";
+import {Link} from "react-router-dom";
 import loading from '../../img/loading.gif'
 
 export function CarrouselComponent(props) {
@@ -15,7 +15,6 @@ export function CarrouselComponent(props) {
         let useremail = props.navigation.useremail;
         let url = props.navigation.url;
         let guardianemail = props.navigation.guardianemail;
-        let title = props.navigation.title;
         let spacetitle = props.navigation.spacetitle;
         let discount = props.navigation.discount;
         let preciosindiscount = props.navigation.preciosindiscount;
@@ -73,7 +72,7 @@ export function CarrouselComponent(props) {
 
                 {orden.map((espacios, key)=>
 
-                  <Link to={`/location?latitude=${latitude ? latitude : ""}&longitude=${longitude ? longitude : ""}&localization=${localization ? localization : ""}&deliver=${deliver ? deliver : ""}&removal=${removal ? removal : ""}&pieces=${pieces !== "" ? pieces : ""}&useremail= ${useremail ? useremail : ""}&url=${url !== "" ? url : ""}&guardianemail=${guardianemail !== "" ? guardianemail : ""}&title=${title !== "" ? title : ""}&spacetitle=${spacetitle !== "" ? spacetitle : ""}&discount=${discount !== "" ? discount : ""}&preciosindiscount=${preciosindiscount !== "" ? preciosindiscount : ""}`}>
+                  <Link to={`/location?latitude=${latitude ? latitude : ""}&longitude=${longitude ? longitude : ""}&localization=${localization ? localization : ""}&deliver=${deliver ? deliver : ""}&removal=${removal ? removal : ""}&pieces=${pieces !== "" ? pieces : ""}&useremail= ${useremail ? useremail : ""}&url=${url !== "" ? url : ""}&guardianemail=${guardianemail !== "" ? guardianemail : ""}&title=${espacios[1].title}&spacetitle=${espacios[1].spacetitle}&discount=${espacios[1].discount}&preciosindiscount=${espacios[1].preciosindiscount}`}>
             <div key={key} className="c-carrousel__item">
 
 
