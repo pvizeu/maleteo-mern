@@ -66,7 +66,7 @@ export function HomePage() {
     }
     return(
         <div className="home">
-          <p className="b-title">Encuentra tu guardian</p>
+          <p className="b-title home__title">Encuentra tu guardian</p>
           <form>
             <InputComponent localization={localization} fnUpdateForm={(datos)=>{updateForm(datos)}}/>
             <div className="c-form">

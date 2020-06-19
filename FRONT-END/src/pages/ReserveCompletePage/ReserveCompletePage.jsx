@@ -27,15 +27,17 @@ export function ReserveCompletePage() {
     discount: (query.get("discount") ? query.get("discount") : ""),
     preciosindiscount: (query.get("preciosindiscount") ? query.get("preciosindiscount") : "")
   });
+  let code = query.get("code") ? query.get("code") : "QTS7";
 
   return (
     <div className=" p-4 complete">
-      <CloseComponent/>
+      <CloseComponent navigation={navigation}/>
       <p className="b-title">Reserva Completada</p>
       <img src={fenix} alt="fenix" className="complete__fenix"/>
-      <p>codigo de reserva: <strong>QWERTY</strong></p>
+      <p>Codigo de reserva: <strong>{code}</strong></p>
       <h3>BE FREE!</h3>
       <p>Contacta ya con tu guardian y espera a que acepte tu reserva</p>
+      <p>Guardian email: {navigation.guardianemail}</p>
     </div>
   );
 }

@@ -30,6 +30,14 @@ export function ReserveDetailsPage() {
 
   console.log("ReserveDetailsPage #### /details  #", navigation);
 
+  function randomStr(len, arr) {
+    let ans = '';
+    for (let i = len; i > 0; i--) {
+      ans +=
+        arr[Math.floor(Math.random() * arr.length)];
+    }
+    return ans;
+  }
   return (
     <div className="details">
       <ArrowBackComponent navigation={navigation}/>
@@ -64,7 +72,7 @@ export function ReserveDetailsPage() {
           <span className="details__text"><strong>12 €</strong></span>
         </div>
       </div>
-      <Link to={`/complete/?latitude=${navigation.latitude ? navigation.latitude : ""}&longitude=${navigation.longitude ? navigation.longitude : ""}&localization=${navigation.localization ? navigation.localization : ""}&deliver=${navigation.deliver ? navigation.deliver : ""}&removal=${navigation.removal ? navigation.removal : ""}&pieces=${navigation.pieces !== "" ? navigation.pieces : ""}&useremail= ${navigation.useremail ? navigation.useremail : ""}&url=${navigation.url !== "" ? navigation.url : ""}&guardianemail=${navigation.guardianemail !== "" ? navigation.guardianemail : ""}&title=${navigation.title !== "" ? navigation.title : ""}&spacetitle=${navigation.spacetitle !== "" ? navigation.spacetitle : ""}&discount=${navigation.discount !== "" ? navigation.discount : ""}&preciosindiscount=${navigation.preciosindiscount !== "" ? navigation.preciosindiscount : ""}`}>
+      <Link to={`/complete/?latitude=${navigation.latitude ? navigation.latitude : ""}&longitude=${navigation.longitude ? navigation.longitude : ""}&localization=${navigation.localization ? navigation.localization : ""}&deliver=${navigation.deliver ? navigation.deliver : ""}&removal=${navigation.removal ? navigation.removal : ""}&pieces=${navigation.pieces !== "" ? navigation.pieces : ""}&useremail= ${navigation.useremail ? navigation.useremail : ""}&url=${navigation.url !== "" ? navigation.url : ""}&guardianemail=${navigation.guardianemail !== "" ? navigation.guardianemail : ""}&title=${navigation.title !== "" ? navigation.title : ""}&spacetitle=${navigation.spacetitle !== "" ? navigation.spacetitle : ""}&discount=${navigation.discount !== "" ? navigation.discount : ""}&preciosindiscount=${navigation.preciosindiscount !== "" ? navigation.preciosindiscount : ""}&code=${randomStr(4,'123456789ABCDQWETRY')}`}>
         <button className="b-btn details__button">Reservar</button>
       </Link>
       <NavComponent navigation={navigation}/>

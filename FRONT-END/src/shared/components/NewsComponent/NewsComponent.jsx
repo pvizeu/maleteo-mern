@@ -7,9 +7,8 @@ export function NewsComponent(props) {
 
     return(
         <div className="c-news">
-            <div className="c-news__title">
-                <h3>Novedades</h3>
-            </div>
+          <p className="b-title c-news__title">Novedades</p>
+
             <div className="c-news__overflow">
                 {blogs.map((blogs, key)=>
             <div key={key} className="c-news__item">
