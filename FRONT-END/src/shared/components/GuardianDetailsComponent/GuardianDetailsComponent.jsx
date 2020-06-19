@@ -11,7 +11,7 @@ export function GuardianDetailsComponent (props) {
   let latitude = props.navigation.latitude;
   let longitude = props.navigation.longitude;
   let deliver = props.navigation.deliver;
-  let removal = props.navigation.removal;
+  let removal = props.navigation.removal; 
   let pieces = props.navigation.pieces;
   let useremail = props.navigation.useremail;
   let url = props.navigation.url;
@@ -21,7 +21,7 @@ export function GuardianDetailsComponent (props) {
   let discount = props.navigation.discount;
   let preciosindiscount = props.navigation.preciosindiscount;
 
-//Formateando deliver
+  //Formateando deliver
 let splitDeliver = deliver.split("T") 
 let dateDeliver = splitDeliver[0].split("-")
 let hourDeliver = splitDeliver[1].split(":")
@@ -39,12 +39,11 @@ let hourRemoval = splitRemoval[1].split(":")
  let departure = new Date (dateRemoval[0],dateRemoval[1],dateRemoval[2],hourRemoval[0],hourRemoval[1])
 const diffTime = Math.abs(departure - arrival)
 const diffHours = (Math.floor((diffTime/1000/60)<<0)/60);
+
+console.log(diffHours);
+
  
 let price;
-
-if( diffHours < 24 ){
-  price = 6;  
-}
 
 if( diffHours / 24 <= 2 && diffHours % 24 !== 0 ){
   let horaExtra = (diffHours - 24 );
@@ -61,6 +60,13 @@ if ( diffHours % 24 === 0 ){
   let dias = diffHours / 24;
   price = 6 + ((dias - 1)*4)
 }
+
+if( diffHours < 24 ){
+  price = 6;  
+}
+
+price = price * pieces;
+
 
     return(
         <div className="c-guardian-details">
