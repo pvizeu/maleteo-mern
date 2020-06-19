@@ -8,12 +8,15 @@ import {Link} from "react-router-dom";
 export function SliderComponent (props) {
     console.log(props.info.photos);
 
+    const photos = props.info.photos;
+
     let spacePhotos = [];
 
-    (props.info.photos).forEach(element => {
-        spacePhotos.push(element[0])
-    });
-
+    if( photos !== undefined ){
+    photos.forEach( element => {
+      spacePhotos.push(element[0])
+    })
+}
     let localization = props.navigation.localization;
     let latitude = props.navigation.latitude;
     let longitude = props.navigation.longitude;
