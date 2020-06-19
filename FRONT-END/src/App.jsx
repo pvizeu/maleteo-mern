@@ -49,11 +49,11 @@ function App() {
           <RegisterPage/>
         </Route>
         <Route exact path="/details" render={() => (
-            login ? (
+            // login ? (
                 <ReserveDetailsPage/>
-            ) : (
-                <LoginPage/>
-            )
+            // ) : (
+            //     <LoginPage/>
+            // )
         )}/>
 
         <Route path="/complete">

@@ -20,7 +20,7 @@ export function LoginPage() {
     deliver: (query.get("deliver") ? query.get("deliver") : ""),
     removal: (query.get("removal") ? query.get("removal") : ""),
     pieces: (query.get("pieces") ? query.get("pieces") : ""),
-    url: (query.get("url") === "details" ? "details" : "home"),
+    url: (query.get("url") ? query.get("url") : "home"),
     useremail: (query.get("useremail") ? query.get("useremail") : ""),
     guardianemail: (query.get("guardianemail") ? query.get("guardianemail") : ""),
     title: (query.get("title") ? query.get("title") : ""),
@@ -29,7 +29,7 @@ export function LoginPage() {
     preciosindiscount: (query.get("preciosindiscount") ? query.get("preciosindiscount") : "")
   });
 
-
+  console.log("LOGIN PAGE ###", navigation);
   //?latitude=${latitude ? latitude : ""}&longitude=${longitude ? longitude : ""}&localization=${localization ? localization : ""}&deliver=${deliver ? deliver : ""}&removal=${removal ? removal : ""}&pieces=${pieces !== "" ? pieces : ""}
 
   return (
