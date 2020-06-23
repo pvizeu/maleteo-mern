@@ -16,12 +16,37 @@ import {RegisterPage} from "./pages/RegisterPage/RegisterPage";
 import {TimePage} from "./pages/TimePage/TimePage";
 import {SpaceDetailsPage} from "./pages/SpaceDetailsPage/SpaceDetailsPage";
 import {LoginContext} from "./shared/contexts/loginContext";
+import {useLocation} from "react-router-dom";
+//import {sailDefinitions} from "./shared/contexts/sailDefinitions";
+import {SailContext} from "./shared/contexts/sailContext";
 
 function App() {
+// Funcion necesaria para hacer uso de queryParams
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+let query = useQuery();
+
+const [navigation, setNavigation] = useState({
+  latitude: (query.get("latitude") ? query.get("latitude") : ""),
+  longitude: (query.get("longitude") ? query.get("longitude") : ""),
+  localization: (query.get("localization") ? query.get("localization") : ""),
+  deliver: (query.get("deliver") ? query.get("deliver") : ""),
+  removal: (query.get("removal") ? query.get("removal") : ""),
+  pieces: (query.get("pieces") ? query.get("pieces") : ""),
+  url: "search",
+  useremail: (query.get("useremail") ? query.get("useremail") : ""),
+  guardianemail: (query.get("guardianemail") ? query.get("guardianemail") : ""),
+  title: (query.get("title") ? query.get("title") : ""),
+  spacetitle: (query.get("spacetitle") ? query.get("spacetitle") : ""),
+  discount: (query.get("discount") ? query.get("discount") : ""),
+  preciosindiscount: (query.get("preciosindiscount") ? query.get("preciosindiscount") : "")
+});
 
   const [login, setLogin] = useState(false);
   return (
     <Router>
+      <SailContext.Provider value={navigation}>
       <LoginContext.Provider value={[login,setLogin]}>
       <Switch>
       <Route path="/calendar">
@@ -73,6 +98,7 @@ function App() {
         </Route>
       </Switch>
       </LoginContext.Provider>
+      </SailContext.Provider>
     </Router>
   );
 }
