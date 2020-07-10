@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 
 export  function ArrowBackComponent(props) {
 
+
   console.log("ARROW BACK ####" , props.navigation);
 
   let localization = props.navigation.localization;

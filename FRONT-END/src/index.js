@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App.jsx';
+import QueryParamsExample from './shared/hooks/QueryParams'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    {/* <QueryParamsExample/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

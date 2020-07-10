@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import world from "../../shared/img/world@3x.png";
 import './GetStartedPage.scss'
 import {Link} from "react-router-dom";
+import { SailContext } from '../../shared/contexts/sailContext';
+
 
 export function GetStartedPage () {
-
+    const navega=useContext(SailContext)
+    console.log("navegacion en Getstarted",navega);
     return(
         <div className="background-orange">
         <div className="p-welcome">

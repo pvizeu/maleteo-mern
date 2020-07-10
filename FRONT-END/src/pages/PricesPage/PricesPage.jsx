@@ -1,10 +1,14 @@
-import React, {useState} from "react";
+import React, {useState,useContext} from "react";
 import {NavComponent} from "../../shared/components/NavComponent/NavComponent";
 import './PricesPage.scss'
 import {ArrowBackComponent} from "../../shared/components/ArrowBackComponent/ArrowBackComponent";
 import {useLocation} from "react-router-dom";
+import { SailContext } from '../../shared/contexts/sailContext';
+
 
 export function PricesPage() {
+    const navega=useContext(SailContext)
+    console.log("navegacion en PricesPage con contexto",navega);
 
     // Funcion necesaria para hacer uso de queryParams
     function useQuery() {
@@ -31,7 +35,7 @@ export function PricesPage() {
     return(
       <div>
         <div className="p-prices">
-            <ArrowBackComponent navigation={navigation}/>
+            <ArrowBackComponent navigation={navega}/>
             <div className="p-prices__container">
             <p className="b-title">Selecciona</p>
             <select className="b-select">
@@ -53,7 +57,7 @@ export function PricesPage() {
                 </div>
             </div>
         </div>
-        <NavComponent navigation={navigation}/>
+        <NavComponent navigation={navega}/>
       </div>
     )
 }

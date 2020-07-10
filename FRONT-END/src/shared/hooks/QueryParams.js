@@ -1,7 +1,9 @@
 import React from "react";
 import {
   BrowserRouter as Router,
+  Route,
   Link,
+  Switch,
   useLocation
 } from "react-router-dom";
 
@@ -31,7 +33,15 @@ function useQuery() {
 }
 
 function QueryParamsDemo() {
-  let query = useQuery();
+  let location=useLocation();
+  console.log("locations");
+  console.log(location);
+  let query = new URLSearchParams(useLocation().search);
+  /*let pathname=new location().state;*/
+  console.log("query");
+  console.log(query);
+  console.log("fin query");
+ // console.log("foreach:",query.forEach());
   const latlng = { lat: 40 , lng: -3};
 
   return (
