@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useState} from 'react';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 import './LoginComponent.scss'
-import {environment} from "../../../environments/environment";
 import {useHistory, useLocation} from "react-router-dom";
 import {LoginContext} from "../../contexts/loginContext";
 
@@ -29,7 +28,7 @@ export function LoginComponent (props) {
     let history = useHistory();
 
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = data => axios.get(environment.url+"token?email="+ data.email+"&password="+data.password)
+    const onSubmit = data => axios.get(process.env.REACT_APP_NODE_MALETEO+"token?email="+ data.email+"&password="+data.password)
         .then(res=>{ console.log(res.data)
             if (res.data.status==401){
                 alert('Datos incorrectos')

@@ -4,11 +4,17 @@ import './index.scss';
 import App from './App.jsx';
 import QueryParamsExample from './shared/hooks/QueryParams'
 import * as serviceWorker from './serviceWorker';
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-    {/* <QueryParamsExample/> */}
+    <Router>
+        <App />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

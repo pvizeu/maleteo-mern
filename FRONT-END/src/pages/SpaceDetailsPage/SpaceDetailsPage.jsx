@@ -36,7 +36,7 @@ export function SpaceDetailsPage() {
   const [ space, setSpace ] = useState([])
 
   useEffect(()=>{
-    axios.get(environment.url +"spaces/?title=" + navigation.title)
+    axios.get(process.env.REACT_APP_NODE_MALETEO +"spaces/?title=" + navigation.title)
     .then(res => {
       console.log(res.data.data)
       setSpace(res.data.data[0]);

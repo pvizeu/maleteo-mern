@@ -12,6 +12,7 @@ import { LogoPage } from './pages/LogoPage/LogoPage';
 import { GetStartedPage } from './pages/GetStartedPage/GetStartedPage';
 import {PricesPage} from "./pages/PricesPage/PricesPage";
 import { useEffect } from 'react';
+import {WelcomePage} from "./pages/WelcomePage/WelcomePage";
 import {HomePage} from "./pages/HomePage/HomePage";
 import {SearchPage} from "./pages/SearchPage/SearchPage";
 import {ReserveDetailsPage} from "./pages/ReserveDetailsPage/ReserveDetailsPage";
@@ -34,14 +35,15 @@ export default function App() {
   const [navigation, setNavigation] = useState({})
   console.log("navigation app arranque",navigation);
   const [login, setLogin] = useState(false);
-  const aux=useAsyncParametros(navigation);
+  //setNavigation(useAsyncParametros(navigation));
   //console.log("aux en app",aux);
 
   // const devolucion=useCallback((datos)=>setNavigation(datos),[navigation]);
+      
+    // <SailContext.Provider value={navigation,}>
+    // <LoginContext.Provider value={[login,setLogin]}>
   return(
-    <Router>
-    <SailContext.Provider value={navigation}>
-    <LoginContext.Provider value={[login,setLogin]}>
+
     <Switch>
     <Route path="/calendar">
         <CalendarPage/>
@@ -52,9 +54,9 @@ export default function App() {
       <Route path="/getstarted">
         <GetStartedPage/>
       </Route>
-      {/* <Route path="/welcome">
+      <Route path="/welcome">
         <WelcomePage/>
-      </Route> */}
+      </Route>
       <Route path="/search">
         <SearchPage/>
       </Route>
@@ -91,9 +93,6 @@ export default function App() {
         <LogoPage/>
       </Route>
     </Switch>
-    </LoginContext.Provider>
-    </SailContext.Provider>
-  </Router>
   )
 }
 
@@ -132,8 +131,8 @@ const Parametros=({sail, onNavigation})=>{
 //datos de navegacion para evitar repetir
 function useAsyncParametros(sail){
   const [navigation, setNavigation] = useState({})
+  const error=false;
   useEffect(()=>{
-    try{
       // eslint-disable-next-line react-hooks/rules-of-hooks
       let query = new URLSearchParams(useLocation().search);
       const navegacion={
@@ -153,9 +152,6 @@ function useAsyncParametros(sail){
       }
       setNavigation(navegacion);
       console.log("valor de navigation en useAsyncParamtros",navigation)
-    }catch(err){
-      console.log("error en useAsyncParametros",sail)
-    }  
-  },[sail]);
+  },[navigation,sail]);
   return navigation;
 }

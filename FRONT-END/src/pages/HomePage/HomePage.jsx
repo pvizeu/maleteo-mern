@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {environment} from "../../environments/environment";
 import axios from 'axios';
 import {NewsComponent} from "../../shared/components/NewsComponent/NewsComponent";
 import {ExperienceComponent} from "../../shared/components/ExprienceComponent/ExperienceComponent";
@@ -48,13 +47,16 @@ export function HomePage() {
   });
 
     useEffect(()=>{
-        axios.get(environment.url +'experiences').then(res=>{
+      console.log("experiencias",process.env.REACT_APP_NODE_MALETEO);
+        axios.get(process.env.REACT_APP_NODE_MALETEO+'experiences').then(res=>{
             setExperiences(res.data.data);
+            console.log("leido experiencias");
         })
     },[])
     useEffect(()=>{
-        axios.get(environment.url +'blogs').then(res=>{
+        axios.get(process.env.REACT_APP_NODE_MALETEO +'blogs').then(res=>{
             setBlogs(res.data.data)
+            console.log("leido blogs",process.env.REACT_APP_NODE_MALETEO)
         })
     },[])
 

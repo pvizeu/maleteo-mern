@@ -3,9 +3,9 @@ import './SearchPage.scss';
 import { SearchComponent } from '../../shared/components/SearchComponent/SearchComponent';
 import { NavComponent } from '../../shared/components/NavComponent/NavComponent';
 import { CarrouselComponent } from '../../shared/components/CarrouselComponent/CarrouselComponent';
-import {environment} from "../../environments/environment";
 import axios from 'axios';
 import {useLocation} from "react-router-dom";
+import { useCallback } from 'react';
 
 export function SearchPage() {
 
@@ -33,26 +33,28 @@ export function SearchPage() {
   });
 
   useEffect(()=>{
-      axios.get(environment.url+'spaces').then(res=>{
+      axios.get(process.env.REACT_APP_NODE_MALETEO+'spaces').then(res=>{
         // console.log(res.data.data);
         setEspacios(res.data.data);
       })
     },[]);
-
-
-  const onSelect = (index) => {
+  const onSelect = useCallback((index) => {
     let aux = navigation;
     aux.title = espacios[index].title;
     aux.guardianemail = espacios[index].guardianemail;
     aux.spacetitle = espacios[index].spacetitle;
     aux.discount = espacios[index].discount;
     setNavigation(aux);
-  }
+  },[navigation]);
 
+ const onPosition = useCallback((coordEle) => {
+  console.log("pagina searp",coordEle);
+  setNavigation({...navigation,...{latitude:coordEle.lat,longitude:coordEle.lng}})
+}, [navigation]);
 
   return (
     <div>
-      <SearchComponent/>
+      <SearchComponent espacios={espacios} onPosition={onPosition}/>
       <div className="car" >
         <CarrouselComponent espacios={espacios} fnOnSelect={(index)=>{onSelect(index)}} navigation={navigation}/>
       </div>

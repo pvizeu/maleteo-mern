@@ -4,8 +4,10 @@ import '../../styles/blocks/_background.blocks.scss'
 import './WelcomePage.scss'
 import {Link} from "react-router-dom";
 
-export function WelcomePage () {
+import {useNavigations} from '../../shared/hooks/useNavigations';
 
+export function WelcomePage () {
+  let  {history,location,navigation}=useNavigations("Welcome");
     return(
         <div className="background-orange">
     <div className="p-welcome">
@@ -18,10 +20,10 @@ export function WelcomePage () {
             <p>Encuentra a tu guardián y disfruta a tu manera. Miles de usuarios ya estan aprovechando las ventajas.</p>
             </div>
             <div className="p-welcome__btn">
-            <Link to="/getstarted"><button className="b-btn">Continuar</button></Link>
+            <Link to={{pathname:"/getstarted",state:{navigation}}}><button className="b-btn">Continuar</button></Link>
             </div>
         </div>
-    </div>
+    </div>    
         </div>
     )
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import {environment} from "../../../environments/environment";
 import { useForm } from "react-hook-form";
 import './RegisterComponent.scss'
 
@@ -20,7 +19,7 @@ export function RegisterComponent () {
         if(edad >= 18){
             console.log("se mandan los datos");
             console.log(data);
-             axios.post(environment.url+'new',data).then(res=>console.log('respuestaa',data));
+             axios.post(process.env.REACT_APP_NODE_MALETEO+'new',data).then(res=>console.log('respuestaa',data));
         }else{
             alert ("Edad invalida")
         }

@@ -4,13 +4,12 @@ import {ArrowBackComponent} from "../../shared/components/ArrowBackComponent/Arr
 import {NavComponent} from "../../shared/components/NavComponent/NavComponent";
 import {ReservationRequestComponent} from "../../shared/components/ReservationRequestComponent/ReservationRequestComponent";
 import axios from 'axios';
-import {environment} from "../../environments/environment";
 
 
 export function GuardianConfirmationPage() {
   const [data, setData] = useState([]);
   useEffect(()=>{
-    axios.get(environment.url +'reservations' ).then(res=>{
+    axios.get(process.env.REACT_APP_NODE_MALETEO +'reservations' ).then(res=>{
       setData(res.data.data)
     })
   },[])
