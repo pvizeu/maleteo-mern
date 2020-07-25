@@ -37,7 +37,7 @@ export function PricesPage() {
     return(
       <div>
         <div className="p-prices">
-            <ArrowBackComponent navigation={navega} />
+            <ArrowBackComponent navigation={navega} history={history}/>
             <div className="p-prices__container">
             <p className="b-title">Selecciona</p>
             <select className="b-select">
@@ -59,7 +59,7 @@ export function PricesPage() {
                 </div>
             </div>
         </div>
-        <NavComponent navigation={navega}/>
+        <NavComponent navigation={navigation}/>
       </div>
     )
 }

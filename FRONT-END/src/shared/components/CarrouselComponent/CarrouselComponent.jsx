@@ -56,14 +56,15 @@ export function CarrouselComponent({espacios,navigation,fnOnSelect}) {
             {/* { orden === undefined ? <img src={loading} alt="/" className="loading" /> : null} */}
                 {orden.map((espacio, key)=>
 
-                  <Link  key= {key} to={`/location?latitude=${latitude ? latitude : ""}&longitude=${longitude ? longitude : ""}&localization=${localization ? localization : ""}&deliver=${deliver ? deliver : ""}&removal=${removal ? removal : ""}&pieces=${pieces !== "" ? pieces : ""}&useremail= ${useremail ? useremail : ""}&url=${url !== "" ? url : ""}&guardianemail=${guardianemail !== "" ? guardianemail : ""}&title=${espacios[1].title}&spacetitle=${espacios[1].spacetitle}&discount=${espacios[1].discount}&preciosindiscount=${espacios[1].preciosindiscount}`}>
+                  <Link  key= {key} to={{pathname:"/spaceDetails/",state:{...navigation,
+                  ...{title:espacio.title,discount:espacio.discount,guardianemail:espacio.email}}}}>
                     <div key={key} className="c-carrousel__item">
                       <img src={espacio.photos[0]} alt="/" className="c-carrousel__img"/>
                       <div className="c-carrousel__details">
                         <p className="c-carrousel__title">{espacio.title}</p>
                         <p className="c-carrousel__alias">{espacio.alias}</p>
                             {/* foto de el guardian */}
-                        <p className="c-carrousel__space">{espacios.space}</p>
+                        <p className="c-carrousel__space">{espacio.space}</p>
                         <p className="c-carrousel__ubicacion">{(espacio.d/1000).toFixed(2)} km de tu ubicación </p>
                       </div>
                     </div>

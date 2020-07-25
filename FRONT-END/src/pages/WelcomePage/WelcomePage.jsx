@@ -20,7 +20,7 @@ export function WelcomePage () {
             <p>Encuentra a tu guardián y disfruta a tu manera. Miles de usuarios ya estan aprovechando las ventajas.</p>
             </div>
             <div className="p-welcome__btn">
-            <Link to={{pathname:"/getstarted",state:{navigation}}}><button className="b-btn">Continuar</button></Link>
+            <Link to={{pathname:"/getstarted",state:navigation}}><button className="b-btn">Continuar</button></Link>
             </div>
         </div>
     </div>    

@@ -1,32 +1,40 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './TimePage.scss';
 import {NavComponent} from "../../shared/components/NavComponent/NavComponent";
 import {ArrowBackComponent} from "../../shared/components/ArrowBackComponent/ArrowBackComponent";
 import {ArrowForwardComponent} from "../../shared/components/ArrowForwardComponent/ArrowForwardComponent";
 import {useLocation} from "react-router-dom";
-
+import {useNavigations} from '../../shared/hooks/useNavigations';
+// var ArrowForwardComponent=require("../../shared/components/ArrowForwardComponent/ArrowForwardComponent").ArrowForwardComponen;
 export function TimePage(){
+  let  {history,location,navigation}=useNavigations("time");
+  const [navega,setNavega]=useState(navigation);
+  
+  // useEffect(()=>{
+  //   setNavega(navigation); 
+  // },[])
+
 
   const [deposito, setDeposito] = useState([]);
   const [retirada, setRetirada] = useState([]);
   const [piezas, setPiezas] = useState([]);
 
   // Funcion necesaria para hacer uso de queryParams
-  function useQuery() {
-    return new URLSearchParams(useLocation().search);
-  }
-  let query = useQuery();
-  const [navigation, setNavigation] = useState({
-    latitude: (query.get("latitude") ? query.get("latitude") : ""),
-    longitude: (query.get("longitude") ? query.get("longitude") : ""),
-    localization: (query.get("localization") ? query.get("localization") : ""),
-    deliver: (query.get("deliver") ? query.get("deliver") : ""),
-    removal: (query.get("removal") ? query.get("removal") : ""),
-    pieces: (query.get("pieces") ? query.get("pieces") : ""),
-    url: "home",
-    useremail: (query.get("useremail") ? query.get("useremail") : "")
-  });
-  console.log("TIME PAGE ###", navigation);
+  // function useQuery() {
+  //   return new URLSearchParams(useLocation().search);
+  // }
+  // let query = useQuery();
+  // const [navigation, setNavigation] = useState({
+  //   latitude: (query.get("latitude") ? query.get("latitude") : ""),
+  //   longitude: (query.get("longitude") ? query.get("longitude") : ""),
+  //   localization: (query.get("localization") ? query.get("localization") : ""),
+  //   deliver: (query.get("deliver") ? query.get("deliver") : ""),
+  //   removal: (query.get("removal") ? query.get("removal") : ""),
+  //   pieces: (query.get("pieces") ? query.get("pieces") : ""),
+  //   url: "home",
+  //   useremail: (query.get("useremail") ? query.get("useremail") : "")
+  // });
+  console.log("TIME PAGE ###", navega);
   const hour = 0;
   const min = 30;
   let time = [];
@@ -49,25 +57,26 @@ export function TimePage(){
   }
 
   let navigationTime = (a,b) => {
-    let aux = navigation;
+    let aux = {...navega};
     if (a === 1){
-      aux.deliver = navigation.deliver.substring(0,10).concat("T", b);
-      setNavigation(aux);
+      aux.deliver = navega.deliver.substring(0,10).concat("T", b);
+      setNavega(aux);
     }
     if (a === 2){
-      aux.removal = navigation.removal.substring(0,10).concat("T", b);
-      setNavigation(aux);
+      aux.removal = navega.removal.substring(0,10).concat("T", b);
+      setNavega(aux);
     }
     if (a === 3){
       aux.pieces = b;
-      setNavigation(aux);
+      setNavega(aux);
     }
+    console.log("time en cambio",aux);
   }
 
 
   return(
     <div>
-      <ArrowBackComponent navigation={navigation}/>
+      <ArrowBackComponent navigation={navega} history={history}/>
       <div className="time">
         <div>
           <span className="b-title time__element" >Deposito</span>
@@ -98,8 +107,8 @@ export function TimePage(){
           {num.map((item, index) => <option key={index} value={item}>{item}</option>)}
         </select>
       </div>
-      <ArrowForwardComponent navigation={navigation}/>
-      <NavComponent navigation={navigation} />
+      <ArrowForwardComponent pagina="/home" navigation={navega}/>
+      <NavComponent navigation={navega} />
     </div>
   );
 }

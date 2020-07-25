@@ -5,38 +5,22 @@ import {ArrowBackComponent} from "../../shared/components/ArrowBackComponent/Arr
 import {useLocation} from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
-import { environment } from "../../environments/environment";
-
+import {Navigations} from '../../shared/hooks/Navigations';
+import {useNavigations} from '../../shared/hooks/useNavigations';
 
 export function SpaceDetailsPage() {
-
+  const {history,navigation}=useNavigations("spaceDetail");
+  const [historia,setHistoria]=useState(()=>{ return history;})
+  const [navega,setNavega]=useState(()=>{ return navigation;});
   // Funcion necesaria para hacer uso de queryParams
-  function useQuery() {
-    return new URLSearchParams(useLocation().search);
-  }
-  let query = useQuery();
-
-  const [navigation, setNavigation] = useState({
-    latitude: (query.get("latitude") ? query.get("latitude") : ""),
-    longitude: (query.get("longitude") ? query.get("longitude") : ""),
-    localization: (query.get("localization") ? query.get("localization") : ""),
-    deliver: (query.get("deliver") ? query.get("deliver") : ""),
-    removal: (query.get("removal") ? query.get("removal") : ""),
-    pieces: (query.get("pieces") ? query.get("pieces") : ""),
-    url: "location",
-    useremail: (query.get("useremail") ? query.get("useremail") : ""),
-    guardianemail: (query.get("guardianemail") ? query.get("guardianemail") : ""),
-    title: (query.get("title") ? query.get("title") : ""),
-    spacetitle: (query.get("spacetitle") ? query.get("spacetitle") : ""),
-    discount: (query.get("discount") ? query.get("discount") : ""),
-    preciosindiscount: (query.get("preciosindiscount") ? query.get("preciosindiscount") : "")
-  });
-  console.log("SpaceDetailsPage #####  /location  #", navigation);
+  
+  console.log("SpaceDetailsPage ##### #");
 
   const [ space, setSpace ] = useState([])
 
   useEffect(()=>{
-    axios.get(process.env.REACT_APP_NODE_MALETEO +"spaces/?title=" + navigation.title)
+    console.log("lectura de un espacio",navega.title);
+    axios.get(process.env.REACT_APP_NODE_MALETEO +"spaces/?title=" + navega.title)
     .then(res => {
       console.log(res.data.data)
       setSpace(res.data.data[0]);
@@ -46,8 +30,8 @@ export function SpaceDetailsPage() {
   console.log(space)
     return(
         <div>
-            <SliderComponent navigation={navigation} info={space} />
-            <GuardianDetailsComponent info={space} navigation={navigation}/>
+            <SliderComponent navigation={navega} info={space} history={historia}/>
+            <GuardianDetailsComponent info={space} navigation={navega}/>
         </div>
     )
 }

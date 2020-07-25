@@ -15,16 +15,15 @@ const aux={
   discount: "",
   preciosindiscount: 0
 }
-export const useNavigations=(pagina)=>{
+export const Navigations=(pagina)=>{
     
     let history=useHistory();
     let location=useLocation();
-    console.log(`useNavigation >>>>>>>>>>PAGINA ${pagina} >>>`,history.length);
+    console.log(`Navigation >>>>>>>>>>PAGINA ${pagina} >>>`,history.length);
     // console.log(JSON.stringify(location));
     // console.log("aux",aux);
     //console.log("state",location.state);
     let navigation ={...aux,...location.state};  //para que tenga los campos se pone aux
-    console.log("usenavigation>>>>",navigation);
+    console.log("navigation>>>>",navigation);
     return {history,location,navigation};
   }
-  

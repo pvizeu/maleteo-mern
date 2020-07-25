@@ -168,7 +168,7 @@ export function SearchComponent({espacios,onPosition}) {
 }
 
   //**********************funcion para buscar una ubicacion y centrarse en ella***************************
-  function Search({ panTo ,latitude, longitude}) {
+  export function Search({ panTo ,latitude, longitude}) {
     const {ready, value,suggestions: { status, data },setValue,clearSuggestions,} = usePlacesAutocomplete({
                                                               requestOptions: {location: { lat: () => latitude, lng: () => longitude},
                                                               radius: 100 * 1000,           
@@ -206,7 +206,7 @@ export function SearchComponent({espacios,onPosition}) {
   }
 
 //*******************+Indica aproximadamente donde encuentras por el browser ***************************++*/
-function Locate({panTo}){
+export function Locate({panTo}){
   return <button className="locate" onClick={()=>{
     navigator.geolocation.getCurrentPosition((position)=>{panTo({lat:position.coords.latitude,lng:position.coords.longitude})},()=>null);
   }}><img src="/compass.png" alt="compass-locate me" height="20px" ></img></button>

@@ -69,21 +69,23 @@ export default function App() {
       <Route path="/register">
         <RegisterPage/>
       </Route>
-      <Route exact path="/details" render={() => (
+      {/* <Route exact path="/details" render={() => (
           login ? (
               <ReserveDetailsPage/>
           ) : (
               <LoginPage/>
           )
-      )}/>
-
+      )}/> */}
+      <Route exact path="/reserveDetails">
+        <ReserveDetailsPage/>
+      </Route>
       <Route path="/complete">
         <ReserveCompletePage/>
       </Route>
       <Route path="/confirmation">
         <GuardianConfirmationPage/>
       </Route>
-      <Route path="/location/">
+      <Route path="/spaceDetails/">
         <SpaceDetailsPage/>
       </Route>
       <Route path="/prices">

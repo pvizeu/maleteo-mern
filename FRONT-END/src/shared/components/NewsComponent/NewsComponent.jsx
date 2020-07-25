@@ -1,10 +1,9 @@
 import React from "react";
-import './NewsComponent.scss'
-
-export function NewsComponent(props) {
-
+import './NewsComponent.scss';
+//con el memo he reducido el render a la mitad
+export const  NewsComponent=React.memo((props)=>{
     const blogs = props.blogs;
-
+    //console.log("blog component");
     return(
         <div className="c-news">
           <p className="b-title c-news__title">Novedades</p>
@@ -24,3 +23,4 @@ export function NewsComponent(props) {
         </div>
     )
 }
+)

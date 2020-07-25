@@ -6,59 +6,39 @@ import { CarrouselComponent } from '../../shared/components/CarrouselComponent/C
 import axios from 'axios';
 import {useLocation} from "react-router-dom";
 import { useCallback } from 'react';
+import {Navigations} from '../../shared/hooks/Navigations';
 
 export function SearchPage() {
-
-  // Funcion necesaria para hacer uso de queryParams
-  function useQuery() {
-    return new URLSearchParams(useLocation().search);
-  }
-  let query = useQuery();
-
+  //let  {history,location,navigation}=useNavigations("search");
+  const [navega,setNavega]=useState(()=>{let {navigation}=Navigations("search"); return navigation;});
   const [ espacios, setEspacios ] = useState([])
-  const [navigation, setNavigation] = useState({
-    latitude: (query.get("latitude") ? query.get("latitude") : ""),
-    longitude: (query.get("longitude") ? query.get("longitude") : ""),
-    localization: (query.get("localization") ? query.get("localization") : ""),
-    deliver: (query.get("deliver") ? query.get("deliver") : ""),
-    removal: (query.get("removal") ? query.get("removal") : ""),
-    pieces: (query.get("pieces") ? query.get("pieces") : ""),
-    url: "search",
-    useremail: (query.get("useremail") ? query.get("useremail") : ""),
-    guardianemail: (query.get("guardianemail") ? query.get("guardianemail") : ""),
-    title: (query.get("title") ? query.get("title") : ""),
-    spacetitle: (query.get("spacetitle") ? query.get("spacetitle") : ""),
-    discount: (query.get("discount") ? query.get("discount") : ""),
-    preciosindiscount: (query.get("preciosindiscount") ? query.get("preciosindiscount") : "")
-  });
 
   useEffect(()=>{
-      axios.get(process.env.REACT_APP_NODE_MALETEO+'spaces').then(res=>{
-        // console.log(res.data.data);
+      axios.get(process.env.REACT_APP_NODE_MALETEO+'spaces').then(res=>{        // console.log(res.data.data);
         setEspacios(res.data.data);
       })
     },[]);
   const onSelect = useCallback((index) => {
-    let aux = navigation;
+    let aux = navega;
     aux.title = espacios[index].title;
     aux.guardianemail = espacios[index].guardianemail;
     aux.spacetitle = espacios[index].spacetitle;
     aux.discount = espacios[index].discount;
-    setNavigation(aux);
-  },[navigation]);
+    setNavega((previous)=>{return {...previous,...aux}});
+  },[navega]);
 
  const onPosition = useCallback((coordEle) => {
-  console.log("pagina searp",coordEle);
-  setNavigation({...navigation,...{latitude:coordEle.lat,longitude:coordEle.lng}})
-}, [navigation]);
+          console.log("pagina searp",coordEle);
+          setNavega((previous)=>{return {...previous,...{latitude:coordEle.lat,longitude:coordEle.lng}}});
+}, [navega]);
 
   return (
     <div>
       <SearchComponent espacios={espacios} onPosition={onPosition}/>
       <div className="car" >
-        <CarrouselComponent espacios={espacios} fnOnSelect={(index)=>{onSelect(index)}} navigation={navigation}/>
+        <CarrouselComponent espacios={espacios} fnOnSelect={(index)=>{onSelect(index)}} navigation={navega}/>
       </div>
-      <NavComponent navigation={navigation} />
+      <NavComponent navigation={navega} />
     </div>
   );
 }

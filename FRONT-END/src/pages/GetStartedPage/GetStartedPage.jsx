@@ -11,7 +11,7 @@ export function GetStartedPage () {
   //  let  {history,location,navigation}=useNavigations("GetStarted");
 
     const navega=useContext(SailContext)
-    console.log("navegacion en Getstarted",navega);
+   // console.log("navegacion en Getstarted",navega);
     return(
         <div className="background-orange">
         <div className="p-welcome">
@@ -24,8 +24,8 @@ export function GetStartedPage () {
                     <p>Dispondrás de un precio fijo estés donde estés, sin importar el tamaño o el peso.</p>
                 </div>
                 <div className="p-welcome__btn">
-                    <Link to={{pathname:"/home",state:{navigation}}}><button className="b-btn">Empezar Ya</button></Link>
-                    <Link to={{pathname:"/prices",state:{navigation}}}><p className="p-get-started__link">Consulta precios</p></Link>
+                    <Link to={{pathname:"/home",state:navigation}}><button className="b-btn">Empezar Ya</button></Link>
+                    <Link to={{pathname:"/prices",state:navigation}}><p className="p-get-started__link">Consulta precios</p></Link>
                 </div>
             </div>
         </div>

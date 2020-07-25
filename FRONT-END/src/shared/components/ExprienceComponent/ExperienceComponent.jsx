@@ -1,10 +1,10 @@
 import React from "react";
 import './ExperienceComponent.scss'
-
-export function ExperienceComponent(props) {
+//con el memo he reducido el render a la mitad
+export const ExperienceComponent=React.memo((props)=> {
 
     const exp = props.exp;
-
+   // console.log("experience componente");
     return (
         <div className="c-experience">
             <p className="title-primary b-title">Experiencias</p>
@@ -23,4 +23,4 @@ export function ExperienceComponent(props) {
 
         </div>
     )
-}
+})
